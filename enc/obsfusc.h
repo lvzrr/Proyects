@@ -27,14 +27,15 @@ int gen_encrypted_files(const char *filename) {
 
   fr = fopen(filename, "rb");
   if (fr == NULL) {
-    printf("file %s not found\n", filename);
+    fprintf(stderr, "file %s not found\n", filename);
     return 1;
   }
   fw = fopen(keyfilename, "wb");
   fw2 = fopen(encryptedfile, "wb");
 
   if (fw == NULL || fw2 == NULL) {
-    printf("failed to open file %s or %s\n", keyfilename, encryptedfile);
+    fprintf(stderr, "failed to open file %s or %s\n", keyfilename,
+            encryptedfile);
     return 1;
   }
   /*
@@ -77,17 +78,17 @@ int decrypt_file(char *encryptedfilename) {
 
   encryptedfile = fopen(encryptedfilename, "rb");
   if (encryptedfile == NULL) {
-    printf("encrypted file %s not found\n", keyfilename);
+    fprintf(stderr, "encrypted file %s not found\n", keyfilename);
     return 1;
   }
   keyfile = fopen(keyfilename, "rb");
   if (keyfile == NULL) {
-    printf("key file %s not found\n", keyfilename);
+    fprintf(stderr, "key file %s not found\n", keyfilename);
     return 1;
   }
   decryptedfile = fopen(outfilename, "wb");
   if (decryptedfile == NULL) {
-    printf("failed to open file %s\n", outfilename);
+    fprintf(stderr, "failed to open file %s\n", outfilename);
     return 1;
   }
   /*
