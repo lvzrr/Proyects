@@ -141,6 +141,7 @@ pub fn geticon(filename: &String, isdir: bool, is_sym: bool) -> String {
         {
             MP4_ICO.to_string()
         }
+        _ if filename.ends_with(".h") => HEADERFILE_ICO.to_string(),
         _ if filename.ends_with(".zip") || filename.ends_with(".rar") => ZIP_ICO.to_string(),
         _ if filename.ends_with(".tar") || filename.ends_with(".gz") => TAR_ICO.to_string(),
         _ if filename.ends_with(".dmg") => DMG_ICO.to_string(),
@@ -166,6 +167,7 @@ pub fn get_color(filename: &str, isdir: bool, is_sym: bool) -> String {
         _ if filename.ends_with(".py") => BRIGHT_YELLOW.to_string(),
         _ if filename.ends_with(".rs") => BRIGHT_GREEN.to_string(),
         _ if filename.ends_with(".toml") => BRIGHT_MAGENTA.to_string(),
+        _ if filename.ends_with(".h") => BRIGHT_RED.to_string(),
         _ if filename.ends_with(".java") => BRIGHT_BLUE.to_string(),
         _ if filename.ends_with(".html") => BRIGHT_CYAN.to_string(),
         _ if filename.ends_with(".md") => BRIGHT_GREEN.to_string(),
