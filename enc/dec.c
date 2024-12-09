@@ -2,7 +2,7 @@
 int main(int argc, char *argv[]) {
   if (argc > 1) {
     for (int i = 1; i < argc; i++) {
-      if (strstr(argv[i], ".crypt") == NULL) {
+      if (strstr(argv[i], ".crypt") != NULL) {
         switch (decrypt_file(argv[i])) {
         case 0:
           printf("[+] %s\n", argv[i]);
