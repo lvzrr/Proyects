@@ -1,8 +1,20 @@
 #include "obsfusc.h"
 int main(int argc, char *argv[]) {
   if (argc > 1) {
-    srand(time(NULL));
-    return gen_encrypted_files(argv[1]);
+    for (int i = 1; i < argc; i++) {
+      switch (gen_encrypted_files(argv[i])) {
+      case 0:
+        printf("[+] %s\n", argv[i]);
+        break;
+      case 1:
+        printf("[Error] %s\n", argv[i]);
+        return 1;
+      default:
+        printf("[?] %s\n", argv[i]);
+        return 1;
+      }
+    }
+    return 0;
   } else {
     printf("Usage: %s <filename>\n", argv[0]);
     return 1;
