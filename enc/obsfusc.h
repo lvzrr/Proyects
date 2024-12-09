@@ -1,5 +1,6 @@
 /* obfusc.h */
 
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,6 +10,8 @@ int gen_encrypted_files(const char *filename) {
   FILE *fr;
   FILE *fw;
   FILE *fw2;
+  FILE *src = fopen("/dev/urandom", "r");
+  assert(src != NULL);
   char *keyfilename = (char *)malloc(256);
   char *encryptedfile = (char *)malloc(256);
 
@@ -20,6 +23,9 @@ int gen_encrypted_files(const char *filename) {
   strcpy(encryptedfile, keyfilename);
   strcat(keyfilename, ".key");
   strcat(encryptedfile, ".crypt");
+
+  assert(keyfilename != NULL);
+  assert(encryptedfile != NULL);
 
   /*
    * open files
@@ -47,12 +53,14 @@ int gen_encrypted_files(const char *filename) {
     if (to_encrypt == EOF) {
       break;
     }
-    int rand_byte = rand() % 256;
+    int rand_byte;
+    fread(&rand_byte, sizeof(int), 1, src);
     fputc(rand_byte, fw);
     fputc(rand_byte ^ to_encrypt, fw2);
   }
   fclose(fr);
   fclose(fw);
+  fclose(src);
   remove(filename);
   return 0;
 }
