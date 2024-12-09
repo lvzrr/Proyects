@@ -4,12 +4,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <time.h>
+#include <unistd.h>
 
 int gen_encrypted_files(const char *filename) {
   FILE *fr;
   FILE *fw;
   FILE *fw2;
+
+  struct stat path_stat;
+  stat(filename, &path_stat);
+  if (S_ISDIR(path_stat.st_mode)) {
+    return 2;
+  }
+
   FILE *src = fopen("/dev/urandom", "r");
   assert(src != NULL);
   char *keyfilename = (char *)malloc(256);
@@ -32,10 +42,11 @@ int gen_encrypted_files(const char *filename) {
    */
 
   fr = fopen(filename, "rb");
-  if (fr == NULL) {
-    fprintf(stderr, "file %s not found\n", filename);
-    return 1;
-  }
+  if (fr)
+    if (fr == NULL) {
+      fprintf(stderr, "file %s not found\n", filename);
+      return 1;
+    }
   fw = fopen(keyfilename, "wb");
   fw2 = fopen(encryptedfile, "wb");
 

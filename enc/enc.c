@@ -9,6 +9,10 @@ int main(int argc, char *argv[]) {
       case 1:
         printf("[Error] %s\n", argv[i]);
         return 1;
+      case 2:
+        printf("[Dir] %s\n", argv[i]);
+        break;
+
       default:
         printf("[?] %s\n", argv[i]);
         return 1;
