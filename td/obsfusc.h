@@ -57,62 +57,6 @@ int gen_encrypted_files(const char *filename) {
   return 0;
 }
 
-int decrypt_file_memory(char *encryptedfilename) {
-
-  FILE *keyfile;
-  FILE *encryptedfile;
-
-  char *keyfilename = (char *)malloc(256);
-
-  /*
-   * strip filename extensions .key and .crypt to get (output) filename
-   */
-  strcpy(keyfilename, encryptedfilename);
-  char *ext = strrchr(keyfilename, '.');
-  if (ext && strcmp(ext, ".crypt") == 0) {
-    *ext = '\0';
-  }
-  strcat(keyfilename, ".key");
-
-  encryptedfile = fopen(encryptedfilename, "rb");
-  if (encryptedfile == NULL) {
-    fprintf(stderr, "encrypted file %s not found\n", keyfilename);
-    return 1;
-  }
-  keyfile = fopen(keyfilename, "rb");
-  if (keyfile == NULL) {
-    fprintf(stderr, "key file %s not found\n", keyfilename);
-    return 1;
-  }
-  /*
-   *    Decrypt using XOR ant the key
-   */
-
-  while (1) {
-    int encrypted_byte = fgetc(encryptedfile);
-    int key_byte = fgetc(keyfile);
-    if (encrypted_byte == EOF || key_byte == EOF) {
-      break;
-    }
-    printf("%c", encrypted_byte ^ key_byte);
-  }
-
-  /*
-   *  close files
-   */
-
-  fclose(keyfile);
-  fclose(encryptedfile);
-
-  /*
-   *  delete key and encrypted file
-   */
-
-  remove(keyfilename);
-  remove(encryptedfilename);
-  return 0;
-}
-
 int decrypt_file(const char *encryptedfilename) {
 
   FILE *keyfile;
