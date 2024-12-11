@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <limits.h>
 #include <stdio.h>
+#include <termios.h>
 
 /* DB FORMAT
  *
@@ -26,7 +27,7 @@
 #define HEADER_LENGTH 256
 #define BODY_LENGTH 801
 #define DATE_LENGTH 256
-
+#define CLEAR_SCREEN "\033[H\033[J"
 struct item {
   long id;
   char header[HEADER_LENGTH];
@@ -277,6 +278,7 @@ item get_user_input() {
 
   return task;
 }
+
 void write_task(int task_c, item task) {
 
   if (task_c == 1) {
@@ -291,6 +293,11 @@ void write_task(int task_c, item task) {
       fprintf(fp, "%ld%%%s%%%s%%%s\n", task.id, task.header, task.body,
               task.date);
     }
+
+    display_task(task);
+
+    printf("%ld%%%s%%%s%%%s\n\n", task.id, task.header, task.body, task.date);
+
     fclose(fp);
   } else {
     FILE *fp = fopen(PATH, "a");
@@ -343,6 +350,8 @@ void add_todo() {
   task_arr[task_c++] = task;
 
   write_task(task_c, task);
+
+  printf("Task added\n");
 
   gen_encrypted_files(path, key_path, enc_path);
 }
@@ -416,4 +425,66 @@ void remove_task_files() {
   remove(KEY_PATH);
 }
 
+void run_menu() {
+  printf(CLEAR_SCREEN);
+  char *last_command = (char *)malloc(sizeof(char) * 256);
+  strcpy(last_command, "None");
+  while (1) {
+    printf("\033[1;32m\n\n[TermStickyNote]\n\n\033[0m");
+    printf("Last command: %s\n", last_command);
+    printf("\nMenu:\n");
+    printf("\ta: Add Task\n");
+    printf("\tl: List Tasks\n");
+    printf("\tr: Remove Task Files\n");
+    printf("\tp: Print Paths\n");
+    printf("\td: Delete Task\n");
+    printf("\tq: Quit\n\n");
+    printf("Enter option: ");
+
+    char input = getchar();
+    getchar();
+
+    switch (input) {
+    case 'a':
+      add_todo();
+      strcpy(last_command, "Add Task");
+      break;
+    case 'l':
+      list_tasks();
+      strcpy(last_command, "List Tasks");
+      break;
+    case 'r':
+      remove_task_files();
+      strcpy(last_command, "Remove Task Files");
+      break;
+    case 'p':
+      printf("PATH: %s\nENC: %s\nKEY: %s\n", PATH, ENC_PATH, KEY_PATH);
+      break;
+    case 'd':
+      delete_task();
+      strcpy(last_command, "Delete Task");
+      break;
+    case 'q':
+      exit(EXIT_SUCCESS);
+      break;
+    default:
+      printf("Invalid input\n");
+      break;
+    }
+
+    int conti = 0;
+    while (conti == 0) {
+      printf("\nPress [anything] enter to continue: ");
+      input = getchar();
+      if (input == '\n') {
+        conti = 1;
+      } else {
+        if (getchar() == '\n') {
+          conti = 1;
+        }
+      }
+    }
+    printf(CLEAR_SCREEN);
+  }
+}
 #endif
