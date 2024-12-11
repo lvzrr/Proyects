@@ -63,6 +63,9 @@ int gen_encrypted_files(const char *filename, const char *keyfilename,
     fputc(rand_byte, fw);
     fputc(rand_byte ^ to_encrypt, fw2);
   }
+  fflush(fw);
+  fflush(fw2);
+  fflush(src);
   fclose(fr);
   fclose(fw);
   fclose(src);
@@ -113,6 +116,7 @@ int decrypt_file(char *encryptedfilename, char *keyfilename,
    */
 
   fclose(keyfile);
+  fflush(encryptedfile);
   fclose(encryptedfile);
   fclose(decryptedfile);
 

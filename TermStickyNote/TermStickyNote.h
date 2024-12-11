@@ -295,6 +295,7 @@ void write_task(int task_c, item task) {
     fprintf(fp, "%ld%%%s%%%s%%%s\n", task.id, task.header, task.body,
             task.date);
   }
+  fflush(fp);
   fclose(fp);
 }
 void write_tasks_exclude_id(int task_c, item *tasks, long id, char *path) {
@@ -311,7 +312,6 @@ void write_tasks_exclude_id(int task_c, item *tasks, long id, char *path) {
 }
 
 void add_todo() {
-
   char *path = (char *)malloc(sizeof(PATH) + sizeof(char));
   strcpy(path, PATH);
   char *key_path = (char *)malloc(sizeof(KEY_PATH) + sizeof(char));
@@ -337,7 +337,6 @@ void add_todo() {
 
   gen_encrypted_files(path, key_path, enc_path);
 }
-
 void list_tasks() {
 
   char *path = (char *)malloc(sizeof(PATH) + sizeof(char));
@@ -419,6 +418,9 @@ char *get_input() {
     exit(EXIT_FAILURE);
   }
   input[strcspn(input, "\n")] = '\0'; // Remove trailing newline
+
+  fflush(stdin);
+  fflush(stdout);
   return input;
 }
 
@@ -446,6 +448,9 @@ void run_menu() {
     printf("Enter option: ");
 
     char *input = get_input();
+    fflush(stdin);
+    fflush(stdout);
+
     if (!input) {
       perror("Failed to get input");
       free(last_command);
@@ -492,10 +497,11 @@ void run_menu() {
       break;
     }
 
+    fflush(stdin);
+    fflush(stdout);
     free(input);
-
     printf("\nPress [Enter] to continue: ");
-    getchar(); // Wait for user to press Enter
+    getchar();
     printf(CLEAR_SCREEN);
   }
 }

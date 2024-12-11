@@ -1,8 +1,6 @@
 #include "TermStickyNote.h"
 
 int main(int argc, char **argv) {
-  fflush(stdout);
-  fflush(stdin);
   for (int i = 0; i < argc; i++) {
     switch (argv[i][1]) {
     case 'a':
