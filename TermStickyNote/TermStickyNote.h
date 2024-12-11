@@ -28,6 +28,7 @@
 #define BODY_LENGTH 801
 #define DATE_LENGTH 256
 #define CLEAR_SCREEN "\033[H\033[J"
+#define COMMANDHEADER "\033[1;32m[TermStickyNote]\033[0m [%s]\n\n"
 struct item {
   long id;
   char header[HEADER_LENGTH];
@@ -280,41 +281,22 @@ item get_user_input() {
 }
 
 void write_task(int task_c, item task) {
-
+  FILE *fp = NULL;
   if (task_c == 1) {
-    FILE *fp = fopen(PATH, "w");
-
-    assert(fp != NULL);
-    assert(task.id != 0);
-
-    task.date[strcspn(task.date, "\n")] = '\0';
-
-    if (task.id != 0) {
-      fprintf(fp, "%ld%%%s%%%s%%%s\n", task.id, task.header, task.body,
-              task.date);
-    }
-
-    display_task(task);
-
-    printf("%ld%%%s%%%s%%%s\n\n", task.id, task.header, task.body, task.date);
-
-    fclose(fp);
+    fp = fopen(PATH, "w");
   } else {
-    FILE *fp = fopen(PATH, "a");
-
-    assert(fp != NULL);
-    assert(task.id != 0);
-
-    task.date[strcspn(task.date, "\n")] = '\0';
-
-    if (task.id != 0) {
-      fprintf(fp, "%ld%%%s%%%s%%%s\n", task.id, task.header, task.body,
-              task.date);
-    }
-    fclose(fp);
+    fp = fopen(PATH, "a");
   }
-}
+  assert(fp != NULL);
+  assert(task.id != 0);
+  task.date[strcspn(task.date, "\n")] = '\0';
 
+  if (task.id != 0) {
+    fprintf(fp, "%ld%%%s%%%s%%%s\n", task.id, task.header, task.body,
+            task.date);
+  }
+  fclose(fp);
+}
 void write_tasks_exclude_id(int task_c, item *tasks, long id, char *path) {
 
   remove(PATH);
@@ -425,14 +407,36 @@ void remove_task_files() {
   remove(KEY_PATH);
 }
 
+char *get_input() {
+  char *input = (char *)malloc(sizeof(char) * 5);
+  if (!input) {
+    perror("Failed to allocate memory for input");
+    exit(EXIT_FAILURE);
+  }
+  if (fgets(input, 5, stdin) == NULL) {
+    perror("Error reading input");
+    free(input);
+    exit(EXIT_FAILURE);
+  }
+  input[strcspn(input, "\n")] = '\0'; // Remove trailing newline
+  return input;
+}
+
 void run_menu() {
   printf(CLEAR_SCREEN);
+
   char *last_command = (char *)malloc(sizeof(char) * 256);
+  if (!last_command) {
+    perror("Failed to allocate memory for last_command");
+    exit(EXIT_FAILURE);
+  }
   strcpy(last_command, "None");
+
   while (1) {
-    printf("\033[1;32m\n\n[TermStickyNote]\n\n\033[0m");
-    printf("Last command: %s\n", last_command);
-    printf("\nMenu:\n");
+
+    printf("\033[1;32m[TermStickyNote]\n\033[0m");
+    printf("\nLast command: %s\n\n", last_command);
+    printf("Menu:\n");
     printf("\ta: Add Task\n");
     printf("\tl: List Tasks\n");
     printf("\tr: Remove Task Files\n");
@@ -441,30 +445,46 @@ void run_menu() {
     printf("\tq: Quit\n\n");
     printf("Enter option: ");
 
-    char input = getchar();
-    getchar();
+    char *input = get_input();
+    if (!input) {
+      perror("Failed to get input");
+      free(last_command);
+      exit(EXIT_FAILURE);
+    }
 
-    switch (input) {
+    char c = input[0];
+
+    printf(CLEAR_SCREEN);
+
+    switch (c) {
     case 'a':
-      add_todo();
       strcpy(last_command, "Add Task");
+      printf(COMMANDHEADER, last_command);
+      add_todo();
       break;
     case 'l':
-      list_tasks();
       strcpy(last_command, "List Tasks");
+      printf(COMMANDHEADER, last_command);
+      list_tasks();
       break;
     case 'r':
-      remove_task_files();
       strcpy(last_command, "Remove Task Files");
+      printf(COMMANDHEADER, last_command);
+      remove_task_files();
       break;
     case 'p':
+      strcpy(last_command, "Print Paths");
+      printf(COMMANDHEADER, last_command);
       printf("PATH: %s\nENC: %s\nKEY: %s\n", PATH, ENC_PATH, KEY_PATH);
       break;
     case 'd':
-      delete_task();
       strcpy(last_command, "Delete Task");
+      printf(COMMANDHEADER, last_command);
+      delete_task();
       break;
     case 'q':
+      free(input);
+      free(last_command);
       exit(EXIT_SUCCESS);
       break;
     default:
@@ -472,18 +492,10 @@ void run_menu() {
       break;
     }
 
-    int conti = 0;
-    while (conti == 0) {
-      printf("\nPress [anything] enter to continue: ");
-      input = getchar();
-      if (input == '\n') {
-        conti = 1;
-      } else {
-        if (getchar() == '\n') {
-          conti = 1;
-        }
-      }
-    }
+    free(input);
+
+    printf("\nPress [Enter] to continue: ");
+    getchar(); // Wait for user to press Enter
     printf(CLEAR_SCREEN);
   }
 }
