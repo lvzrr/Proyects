@@ -14,23 +14,14 @@
 
 /* TODO:
  *
- *  - PARSE A LINE AND APPEND THE RESULT TO A ITEM ARRAY,
- *    RETURN THE ARRAY AND PRINT IT [read_file()]
- *
- *  - FIGURE OUT HOW TO NOT STATICALLY ALLOCATE THE LINE
- *
  *  - ADD A FUNCTION TO DELETE A TASK
- *
- *  - IM NOT ADDING MODIFICATION OF TASKS, FUCK THAT,
- *    JUST MAKE ANOTHER ONE
- *
- *  - ALSO IMPLEMENT A DISPLAY METHOD FOR THE ITEM TYPE
  *
  */
 
-#define PATH "/home/lvx/.config/doers/todo.txt"
-#define ENC_PATH "/usr/local/task/tasks.crypt"
-#define ITEM_PRINTING_FORMAT "[%ld]\n%s:\n\t%s\n%s\n"
+#define PATH "/home/lvx/.tasks/tasks"
+#define ENC_PATH "/home/lvx/.tasks/.tasks.crypt"
+#define KEY_PATH "/home/lvx/.keys/tasks.key"
+#define ITEM_PRINTING_FORMAT "\n[%ld]\n%s:\n\t%s\n%s\n"
 
 struct item {
   long id;
@@ -39,9 +30,24 @@ struct item {
   char *date;
 } typedef item;
 
-int *analyse_file() {
+void ensure_existence(char *path) {
 
-  FILE *fp = fopen(PATH, "rb");
+  FILE *fp = fopen(path, "a+");
+  fputc(' ', fp);
+  fclose(fp);
+}
+
+int check_existence(char *path) {
+  FILE *fp = fopen(path, "r");
+  if (fp == NULL) {
+    return 0;
+  }
+  fclose(fp);
+  return 1;
+}
+int get_task_count() {
+
+  FILE *fp = fopen(PATH, "a+");
 
   assert(fp != NULL);
 
@@ -54,12 +60,34 @@ int *analyse_file() {
     }
   }
 
-  rewind(fp);
-  assert(lines != 0);
+  fclose(fp);
+  return lines;
+}
 
-  int *line_char_count = (int *)malloc(sizeof(int *) * (lines + +11));
+void display_tasks(item *tasks, int taskc) {
+  int i = 0;
+  while (i < taskc) {
+    printf(ITEM_PRINTING_FORMAT, tasks[i].id, tasks[i].header, tasks[i].body,
+           tasks[i].date);
+    i++;
+  }
+}
+
+void display_task(item task) {
+  printf(ITEM_PRINTING_FORMAT, task.id, task.header, task.body, task.date);
+}
+int *analyse_file(int lines) {
+
+  FILE *fp = fopen(PATH, "rb");
+
+  if (lines == 0) {
+    return 0;
+  }
+
+  int *line_char_count = (int *)malloc(sizeof(int *) * (lines));
   int ch = 0;
   int i = 0;
+  char c;
 
   while ((c = fgetc(fp)) != EOF) {
     if (c != '\n') {
@@ -69,82 +97,78 @@ int *analyse_file() {
       ch = 0;
     }
   }
-  line_char_count[lines] = 888888;
 
   assert(line_char_count != NULL);
-
+  fclose(fp);
   return line_char_count;
   free(line_char_count);
 }
 
-item *get_lines() {
+item *get_lines(int c_lines) {
 
-  int *lines = analyse_file();
-
-  assert(lines != NULL);
+  int *lines = analyse_file(c_lines);
 
   int i = 0;
-  int c_lines = 0;
 
-  while (lines[i] != 888888) {
-    i++;
-    c_lines++;
+  item *tasks = (item *)malloc(sizeof(item) * (c_lines + 1));
+
+  if (c_lines == 0) {
+    return tasks;
   }
-
   FILE *fp = fopen(PATH, "rb");
   assert(fp != NULL);
 
-  item *tasks = (item *)malloc(sizeof(item) * c_lines);
-
+  int c_tasks = 0;
   for (int j = 0; j < c_lines; j++) {
-    char *line = (char *)malloc(sizeof(char) * lines[j]);
+    char *line = (char *)malloc(sizeof(char) * (lines[j] + 3));
     fgets(line, lines[j] + 1, fp);
 
-    const char *delim = "%";
+    if (line != NULL && strlen(line) > 1 && line[0] != '\n' && line[0] != ' ' &&
+        line[0] != '\0' && line[0] != '\t' && line[0] != '\r') {
 
-    char *token = strtok(line, delim);
+      const char *delim = "%";
 
-    int it = 0;
-    int c_tasks = 0;
+      char *token = strtok(line, delim);
 
-    while (token != NULL) {
-      printf("%s\n", token);
+      int it = 0;
+
       char *header;
       char *body;
       char *date;
       long id = 0;
 
-      switch (it) {
-      case 0:
-        token = (char *)malloc(strlen(token) * sizeof(char));
-        date = token;
-        assert(date != NULL);
-        break;
-      case 1:
-        id = atol(token);
-        assert(id != 0);
-        break;
-      case 2:
-        header = (char *)malloc(strlen(token) * sizeof(char));
-        header = token;
-        assert(header != NULL);
-        break;
-      case 3:
-        body = (char *)malloc(strlen(token) * sizeof(char));
-        body = token;
-        assert(body != NULL);
-        break;
+      while (token != NULL) {
+        switch (it) {
+        case 0:
+          id = atol(token);
+          assert(token != NULL);
+          break;
+        case 1:
+          header = (char *)malloc(strlen(token) * sizeof(char) + 1);
+          strcpy(header, token);
+          assert(header != NULL);
+          break;
+        case 2:
+          body = (char *)malloc(strlen(token) * sizeof(char) + 1);
+          strcpy(body, token);
+          assert(body != NULL);
+          break;
+        case 3:
+          date = (char *)malloc(strlen(token) * sizeof(char) + 1);
+          strcpy(date, token);
+          assert(date != NULL);
+          break;
+        }
+        token = strtok(NULL, delim);
+        it++;
       }
-      it++;
-      token = strtok(NULL, delim);
       item task = {id, header, body, date};
       tasks[c_tasks] = task;
       c_tasks++;
+      it = 0;
     }
-    it = 0;
-    c_tasks = 0;
-    free(line);
   }
+
   fclose(fp);
   return tasks;
 }
@@ -159,19 +183,34 @@ char *get_date() {
 }
 
 char *get_header() {
-  char *header;
+  char *header = (char *)malloc(255);
+  if (!header) {
+    perror("Failed to allocate memory for header");
+    exit(EXIT_FAILURE);
+  }
   printf("Enter header: ");
-  scanf("%s", header);
+  if (fgets(header, 255, stdin) == NULL) {
+    perror("Error reading header");
+    exit(EXIT_FAILURE);
+  }
+  header[strcspn(header, "\n")] = '\0';
   return header;
 }
 
 char *get_body() {
-  char *body;
+  char *body = (char *)malloc(800);
+  if (!body) {
+    perror("Failed to allocate memory for body");
+    exit(EXIT_FAILURE);
+  }
   printf("Enter body: ");
-  scanf("%s", body);
+  if (fgets(body, 800, stdin) == NULL) {
+    perror("Error reading body");
+    exit(EXIT_FAILURE);
+  }
+  body[strcspn(body, "\n")] = '\0';
   return body;
 }
-
 long gen_id(char *header) {
   int l = strlen(header);
   long id = 10002;
@@ -196,56 +235,86 @@ item get_user_input() {
   return task;
 }
 
-int write_task(item *task) {
-  FILE *fp = fopen(PATH, "a");
+void write_tasks(int task_c, item *tasks, item task) {
+
+  FILE *fp = fopen(PATH, "w");
+
   assert(fp != NULL);
-  assert(task != NULL);
-  long id = task->id;
-  char *header = task->header;
-  char *body = task->body;
-  char *date = task->date;
-  char *toappend = (char *)malloc(sizeof(header) + sizeof(body) + sizeof(date) +
-                                  sizeof(id) + 4);
-  sprintf(toappend, "%ld%%%s%%%s%%%s\n", id, header, body, date);
-  assert(toappend != NULL);
-  fwrite(toappend, sizeof(toappend), 1, fp);
+  assert(task.id != 0);
+  printf("Writing task %s to file\n", task.header);
+  for (int i = 0; i < task_c; i++) {
+    fprintf(fp, "%ld%%%s%%%s%%%s\n", tasks[i].id, tasks[i].header,
+            tasks[i].body, tasks[i].date);
+  }
+
   fclose(fp);
-  return 0;
 }
 
-int add_todo() {
-  FILE *efp = fopen(ENC_PATH, "rb");
-  FILE *fp = fopen(PATH, "rb");
+void add_todo() {
 
-  /*
-   * CHECK IF THE ENCRYPTED FILE EXISTS,
-   * IF SO, DECRYPT IT
-   *
-   */
+  char *path = (char *)malloc(sizeof(PATH) + sizeof(char) * 2);
+  strcpy(path, PATH);
+  char *key_path = (char *)malloc(sizeof(KEY_PATH) + sizeof(char) * 2);
+  strcpy(key_path, KEY_PATH);
+  char *enc_path = (char *)malloc(sizeof(ENC_PATH) + sizeof(char) * 2);
+  strcpy(enc_path, ENC_PATH);
 
-  if (efp != NULL && fp == NULL) {
-    char *encpath = (char *)malloc(sizeof(ENC_PATH));
-    strcpy(encpath, ENC_PATH);
-    decrypt_file(encpath);
-    fclose(efp);
-    fclose(fp);
-    free(encpath);
+  ensure_existence(path);
+
+  if (check_existence(enc_path)) {
+    decrypt_file(enc_path, key_path, path);
   }
 
-  /* CHECK IF ANY FILE EXISTS, IF NOT CREATE IT */
+  int task_c = get_task_count();
 
-  else if (efp == NULL && fp == NULL) {
-    fclose(fp);
-    FILE *fp = fopen(PATH, "wb");
-    fputc('\0', fp);
-    assert(fp != NULL);
-    fclose(fp);
-    fclose(efp);
-  }
+  item *task_arr = get_lines(task_c);
 
   item task = get_user_input();
-  write_task(&task);
 
-  return gen_encrypted_files(PATH);
+  task_arr[task_c] = task;
+
+  task_c++;
+
+  printf("trying to display last task\n");
+
+  display_tasks(task_arr, task_c);
+
+  write_tasks(task_c, task_arr, task);
+
+  gen_encrypted_files(path, key_path, enc_path);
 }
+
+void list_tasks() {
+
+  char *path = (char *)malloc(sizeof(PATH) + sizeof(char));
+  strcpy(path, PATH);
+  char *key_path = (char *)malloc(sizeof(KEY_PATH) + sizeof(char));
+  strcpy(key_path, KEY_PATH);
+  char *enc_path = (char *)malloc(sizeof(ENC_PATH) + sizeof(char));
+  strcpy(enc_path, ENC_PATH);
+
+  if (!check_existence(path) && !check_existence(enc_path)) {
+    printf("No file %s or %s found\n", path, enc_path);
+    exit(EXIT_FAILURE);
+  }
+
+  if (check_existence(enc_path)) {
+    decrypt_file(enc_path, key_path, path);
+  }
+
+  int task_c = get_task_count();
+
+  item *tasks = get_lines(task_c);
+
+  display_tasks(tasks, task_c);
+
+  gen_encrypted_files(path, key_path, enc_path);
+}
+
+void remove_task_files() {
+  remove(PATH);
+  remove(ENC_PATH);
+  remove(KEY_PATH);
+}
+
 #endif

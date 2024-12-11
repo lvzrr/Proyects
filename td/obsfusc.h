@@ -9,7 +9,8 @@
 #include <time.h>
 #include <unistd.h>
 
-int gen_encrypted_files(const char *filename) {
+int gen_encrypted_files(const char *filename, const char *keyfilename,
+                        const char *encryptedfile) {
   FILE *fr;
   FILE *fw;
   FILE *fw2;
@@ -22,17 +23,10 @@ int gen_encrypted_files(const char *filename) {
 
   FILE *src = fopen("/dev/urandom", "r");
   assert(src != NULL);
-  char *keyfilename = (char *)malloc(256);
-  char *encryptedfile = (char *)malloc(256);
 
   /*
    * strip filename extension and add .key
    */
-
-  strcpy(keyfilename, filename);
-  strcpy(encryptedfile, keyfilename);
-  strcat(keyfilename, ".key");
-  strcat(encryptedfile, ".crypt");
 
   assert(keyfilename != NULL);
   assert(encryptedfile != NULL);
@@ -75,25 +69,16 @@ int gen_encrypted_files(const char *filename) {
   remove(filename);
   return 0;
 }
-int decrypt_file(char *encryptedfilename) {
+int decrypt_file(char *encryptedfilename, char *keyfilename,
+                 char *outfilename) {
 
   FILE *keyfile;
   FILE *encryptedfile;
   FILE *decryptedfile;
 
-  char *keyfilename = (char *)malloc(256);
-  char *outfilename = (char *)malloc(256);
-
   /*
    * strip filename extensions .key and .crypt to get (output) filename
    */
-  strcpy(keyfilename, encryptedfilename);
-  char *ext = strrchr(keyfilename, '.');
-  if (ext && strcmp(ext, ".crypt") == 0) {
-    *ext = '\0';
-  }
-  strcpy(outfilename, keyfilename);
-  strcat(keyfilename, ".key");
 
   encryptedfile = fopen(encryptedfilename, "rb");
   if (encryptedfile == NULL) {
