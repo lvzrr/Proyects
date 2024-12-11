@@ -41,6 +41,12 @@ void ensure_existence(char *path) {
   fclose(fp);
 }
 
+void remove_task_files() {
+  remove(PATH);
+  remove(ENC_PATH);
+  remove(KEY_PATH);
+}
+
 int check_existence(char *path) {
   FILE *fp = fopen(path, "r");
   if (fp == NULL) {
@@ -281,11 +287,11 @@ item get_user_input() {
 }
 
 void write_task(int task_c, item task) {
-  FILE *fp = NULL;
-  if (task_c == 1) {
-    fp = fopen(PATH, "w");
+  FILE *fp;
+  if (task_c > 1) {
+    fp = fopen(PATH, "a+");
   } else {
-    fp = fopen(PATH, "a");
+    fp = fopen(PATH, "w");
   }
   assert(fp != NULL);
   assert(task.id != 0);
@@ -295,6 +301,10 @@ void write_task(int task_c, item task) {
     fprintf(fp, "%ld%%%s%%%s%%%s\n", task.id, task.header, task.body,
             task.date);
   }
+  fflush(fp);
+
+  fflush(stdin);
+  fflush(stdout);
   fflush(fp);
   fclose(fp);
 }
@@ -372,7 +382,6 @@ long get_delete_id() {
 }
 
 void delete_task() {
-
   char *path = (char *)malloc(sizeof(PATH) + sizeof(char));
   strcpy(path, PATH);
   char *key_path = (char *)malloc(sizeof(KEY_PATH) + sizeof(char));
@@ -389,21 +398,20 @@ void delete_task() {
     decrypt_file(enc_path, key_path, path);
   }
 
-  long id = get_delete_id();
-
   int task_c = get_task_count();
+
+  if (task_c == 1 || task_c == 0) {
+    remove_task_files();
+    return;
+  }
+
+  long id = get_delete_id();
 
   item *tasks = get_lines(task_c);
 
   write_tasks_exclude_id(task_c, tasks, id, path);
 
   gen_encrypted_files(path, key_path, enc_path);
-}
-
-void remove_task_files() {
-  remove(PATH);
-  remove(ENC_PATH);
-  remove(KEY_PATH);
 }
 
 char *get_input() {
@@ -426,16 +434,13 @@ char *get_input() {
 
 void run_menu() {
   printf(CLEAR_SCREEN);
-
   char *last_command = (char *)malloc(sizeof(char) * 256);
   if (!last_command) {
     perror("Failed to allocate memory for last_command");
     exit(EXIT_FAILURE);
   }
   strcpy(last_command, "None");
-
   while (1) {
-
     printf("\033[1;32m[TermStickyNote]\n\033[0m");
     printf("\nLast command: %s\n\n", last_command);
     printf("Menu:\n");
@@ -448,8 +453,6 @@ void run_menu() {
     printf("Enter option: ");
 
     char *input = get_input();
-    fflush(stdin);
-    fflush(stdout);
 
     if (!input) {
       perror("Failed to get input");
@@ -460,6 +463,9 @@ void run_menu() {
     char c = input[0];
 
     printf(CLEAR_SCREEN);
+
+    fflush(stdin);
+    fflush(stdout);
 
     switch (c) {
     case 'a':
@@ -485,6 +491,7 @@ void run_menu() {
     case 'd':
       strcpy(last_command, "Delete Task");
       printf(COMMANDHEADER, last_command);
+      list_tasks();
       delete_task();
       break;
     case 'q':
