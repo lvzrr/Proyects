@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <limits.h>
 #include <stdio.h>
+#include <sys/ioctl.h>
 #include <termios.h>
 
 /* DB FORMAT
@@ -29,12 +30,24 @@
 #define DATE_LENGTH 256
 #define CLEAR_SCREEN "\033[H\033[J"
 #define COMMANDHEADER "\033[1;32m[TermStickyNote]\033[0m [%s]\n\n"
+
 struct item {
   long id;
   char header[HEADER_LENGTH];
   char body[BODY_LENGTH];
   char date[DATE_LENGTH];
 } typedef item;
+
+size_t get_terminal_width() {
+  struct winsize w;
+  ioctl(0, TIOCGWINSZ, &w);
+  return w.ws_col;
+}
+
+int get_padding(char *str) {
+  int padding = (get_terminal_width() - strlen(str)) / 2;
+  return padding;
+}
 
 void ensure_existence(char *path) {
   FILE *fp = fopen(path, "a+");
@@ -441,16 +454,11 @@ void run_menu() {
   }
   strcpy(last_command, "None");
   while (1) {
-    printf("\033[1;32m[TermStickyNote]\n\033[0m");
-    printf("\nLast command: %s\n\n", last_command);
-    printf("Menu:\n");
-    printf("\ta: Add Task\n");
-    printf("\tl: List Tasks\n");
-    printf("\tr: Remove Task Files\n");
-    printf("\tp: Print Paths\n");
-    printf("\td: Delete Task\n");
-    printf("\tq: Quit\n\n");
-    printf("Enter option: ");
+    printf("\033[1;32m[TermStickyNote]\n\033[0m\nLast command: "
+           "%s\n\nMenu:\n\ta: Add Task\n\tl: List Tasks\n\tr: Remove Task "
+           "Files\n\tp: Print Paths\n\td: Delete Task\n\tq: Quit\n\nEnter "
+           "option: ",
+           last_command);
 
     char *input = get_input();
 
