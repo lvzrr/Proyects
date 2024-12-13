@@ -263,17 +263,16 @@ char *get_body() {
   body[strcspn(body, "\n")] = '\0';
   return body;
 }
-long gen_id(char *header, char *body) {
+long gen_id(char *header, char *body, long id) {
   int l = strlen(header);
-  long id = 11;
   for (int i = 0; i < l; i++) {
     id *= (header[i]) * (strlen(body));
   }
   if (id > LONG_MAX || id < 0) {
-    id = LONG_MAX - (strlen(header));
+    id = gen_id(header, body, id--);
   }
   assert(id != 0);
-  return id;
+  return id % 10000;
 }
 
 item get_user_input() {
@@ -285,7 +284,7 @@ item get_user_input() {
   strcpy(b, get_body());
   strcpy(d, get_date());
 
-  long id = gen_id(h, b);
+  long id = gen_id(h, b, 11);
 
   item task;
   task.id = id;
