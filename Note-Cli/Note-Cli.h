@@ -271,6 +271,9 @@ long gen_id(char *header, char *body, long id) {
   if (id > LONG_MAX || id < 0) {
     id = gen_id(header, body, id--);
   }
+  if (id == 0) {
+    id = gen_id(header, body, id++);
+  }
   assert(id != 0);
   return id % 10000;
 }
