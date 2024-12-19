@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e -n "1. Update REASME.md files\n2. Commit all changes\n3. Dont push changes\n\nSelect an option: "
+echo -e -n "1. Update README.md files\n2. Commit all changes\n3. Dont push changes\n\nSelect an option: "
 
 read -r option
 
