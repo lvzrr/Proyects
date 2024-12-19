@@ -1,6 +1,4 @@
-
 #include "keys.h"
-#include <raylib.h>
 
 char *UpdateBuffer(char *buffer, char newChar) {
   size_t b_len = strlen(buffer);
