@@ -1,4 +1,18 @@
 
+# Latest Commits:
+| Commit Hash | Commit Msg | Author | Date |
+|-------------|------------|--------|------|
+| CURRENT | support for current commit | lvzrr | 2024-12-19 |
+| ed9fe87 | Update README.md | lvzrr | 2024-12-19 |
+| c225094 | Update README.md | lvzrr | 2024-12-19 |
+| 2d25660 | Update README.md | lvzrr | 2024-12-19 |
+| 8f0a3ab | changed script logic | lvzrr | 2024-12-19 |
+| 690a8a4 | made a table of contents | lvzrr | 2024-12-19 |
+| e92c427 | Update README.md | lvzrr | 2024-12-19 |
+| b58b886 | Update README.md | lvzrr | 2024-12-19 |
+| cdcd41a | Update README.md | lvzrr | 2024-12-19 |
+| 651c700 | Update README.md | lvzrr | 2024-12-19 |
+| 36c21f6 | Update README.md | lvzrr | 2024-12-19 |
 # RECREATINAL PROGRAMMING
 > [!Warning]
 **This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**
@@ -87,17 +101,3 @@ A ls type util that uses nerdfonts to display files clearer than the default ls 
 ## [TapRec](https://github.com/lvzrr/Recreational-Programming/tree/main/TapRec)
 A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 
-# Latest Commits:
-| Commit Hash | Commit Msg | Author | Date |
-|-------------|------------|--------|------|
-| CURRENT | Update README.md | lvzrr | 19-12-2024 |
-| c225094 | Update README.md | lvzrr | 2024-12-19 |
-| 2d25660 | Update README.md | lvzrr | 2024-12-19 |
-| 8f0a3ab | changed script logic | lvzrr | 2024-12-19 |
-| 690a8a4 | made a table of contents | lvzrr | 2024-12-19 |
-| e92c427 | Update README.md | lvzrr | 2024-12-19 |
-| b58b886 | Update README.md | lvzrr | 2024-12-19 |
-| cdcd41a | Update README.md | lvzrr | 2024-12-19 |
-| 651c700 | Update README.md | lvzrr | 2024-12-19 |
-| 36c21f6 | Update README.md | lvzrr | 2024-12-19 |
-| 2251294 | Update README.md | lvzrr | 2024-12-19 |

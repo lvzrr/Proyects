@@ -1,6 +1,6 @@
 #!/bin/bash
 function gen_table() {
-    header="# Latest Commits:\n| Commit Hash | Commit Msg | Author | Date |\n|-------------|------------|--------|------|"
+    header="# Latest Commits:\n| Commit Hash | Commit Msg | Author | Date |\n|-------------|------------|--------|------|\n| CURRENT | $1 | $2 | $3 |"
 
     commits=$(git log -n 10 --pretty=format:"%h|%s|%an|%as")
 
@@ -17,6 +17,7 @@ function gen_table() {
 
     echo "Table successfully added to README.md"
 }
+
 function gen_repo_README() {
     toc="## Table of contents:\n"
     header="# RECREATINAL PROGRAMMING\n> [!Warning]\n**This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**"
@@ -47,7 +48,6 @@ function gen_repo_README() {
         echo "[+] $readme"
     done
     echo -e "$header\n$toc\n$readme_md" >>README.md
-    gen_table
     echo -e "\n\n"
 }
 
@@ -57,7 +57,7 @@ read -r option
 echo "" >README.md
 
 case "$option" in
-1) gen_repo_README && git add README.md && git commit -m "Update README.md" && git push ;;
+1) gen_repo_README && gen_table "Update README.md" "$(git config user.name)" "$(date "+%Y-%m-%d")" && git add README.md && git commit -m "Update README.md" && git push ;;
 2)
     diffs=$(eval "git diff")
     echo -e "DIFFS: \n$diffs\n"
@@ -68,6 +68,10 @@ case "$option" in
     echo -n "Please input a commit message: "
     read -r commitmsg
     echo -e "Generating README.md for the repo...\n\n"
+
+    username=$(git config user.name)
+
+    gen_table "$commitmsg" "$username" "$(date "+%Y-%m-%d")"
     gen_repo_README
     git add . && git commit -m "$commitmsg" && git push
     ;;
