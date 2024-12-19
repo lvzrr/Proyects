@@ -90,21 +90,8 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
-| CURRENT | Update README.md | luxoresl@gmail.com
-lvzrr
-
-!/usr/bin/gh auth git-credential
-
-!/usr/bin/gh auth git-credential
-main
-0
-true
-false
-true
-https://github.com/lvzrr/Recreational-Programming.git
-+refs/heads/*:refs/remotes/origin/*
-origin
-refs/heads/main | 19-12-2024 |
+| CURRENT | Update README.md |  | 19-12-2024 |
+| 2d25660 | Update README.md | lvzrr | 2024-12-19 |
 | 8f0a3ab | changed script logic | lvzrr | 2024-12-19 |
 | 690a8a4 | made a table of contents | lvzrr | 2024-12-19 |
 | e92c427 | Update README.md | lvzrr | 2024-12-19 |
@@ -114,4 +101,3 @@ refs/heads/main | 19-12-2024 |
 | 36c21f6 | Update README.md | lvzrr | 2024-12-19 |
 | 2251294 | Update README.md | lvzrr | 2024-12-19 |
 | c17a7e7 | Update README.md | lvzrr | 2024-12-19 |
-| 16968e1 | Update README.md | lvzrr | 2024-12-19 |
