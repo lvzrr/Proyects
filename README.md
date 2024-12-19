@@ -1,7 +1,7 @@
 # RECREATINAL PROGRAMMING
 > [!Warning]
 **This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**
-+ ## [Clearf](https://github.com/lvzrr/Recreational-Programming/tree/main/Clearf)
+## [Clearf](https://github.com/lvzrr/Recreational-Programming/tree/main/Clearf)
 
 > [!Note]
 Only works in **POSIX** systems, or at least in linux, as it gets keystrokes data directly from the driver
@@ -39,7 +39,7 @@ chmod +x ./run.sh && ./run.sh
 ```
 > [!Warning]
 **CLEARF IS COMING**
-+ ## [KeyWatcher](https://github.com/lvzrr/Recreational-Programming/tree/main/KeyWatcher)
+## [KeyWatcher](https://github.com/lvzrr/Recreational-Programming/tree/main/KeyWatcher)
 
 A multithreaded daemon to display keystrokes through the keyboard using raylib (Only works on **POSIX** operating systems, or at least in Linux)
 
@@ -53,9 +53,9 @@ chmod +x run.sh && ./run.sh
 ```
 > [!Note] 
 I wouldn't change the font, bc i adjusted the buffer so it has 1 more char than the display, but you do you
-+ ## [Locksmith](https://github.com/lvzrr/Recreational-Programming/tree/main/Locksmith)
+## [Locksmith](https://github.com/lvzrr/Recreational-Programming/tree/main/Locksmith)
 Random Password Generator in C 
-+ ## [Note-Cli](https://github.com/lvzrr/Recreational-Programming/tree/main/Note-Cli)
+## [Note-Cli](https://github.com/lvzrr/Recreational-Programming/tree/main/Note-Cli)
 A simple TUI TO-DO app, this uses [this other project](https://github.com/lvzrr/Proyects/tree/main/ObfusKey) for encrypting the notes
 
 > [!NOTE]
@@ -67,17 +67,18 @@ chmod +x run.sh
 ```
 
 
-+ ## [ObfusKey](https://github.com/lvzrr/Recreational-Programming/tree/main/ObfusKey)
+## [ObfusKey](https://github.com/lvzrr/Recreational-Programming/tree/main/ObfusKey)
 Encrypt and decrypt files using randomly generated keys
-+ ## [Pomodoro](https://github.com/lvzrr/Recreational-Programming/tree/main/Pomodoro)
+## [Pomodoro](https://github.com/lvzrr/Recreational-Programming/tree/main/Pomodoro)
 TUI for a pomodoro timer 
-+ ## [Sniffer](https://github.com/lvzrr/Recreational-Programming/tree/main/Sniffer)
+## [Sniffer](https://github.com/lvzrr/Recreational-Programming/tree/main/Sniffer)
 A ls type util that uses nerdfonts to display files clearer than the default ls command
-+ ## [TapRec](https://github.com/lvzrr/Recreational-Programming/tree/main/TapRec)
+## [TapRec](https://github.com/lvzrr/Recreational-Programming/tree/main/TapRec)
 A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
+| befbf3f | Update README.md | lvzrr | 2024-12-19 |
 | 1fa8840 | ensured header in README.md | lvzrr | 2024-12-19 |
 | 94a6a3c | added date AND author to the table | lvzrr | 2024-12-19 |
 | e5435cc | Update README.md | lvzrr | 2024-12-19 |
@@ -87,4 +88,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | d0b3e0a | table history generation method added | lvzrr | 2024-12-19 |
 | f2a40a6 | made commithistory table | lvzrr | 2024-12-19 |
 | ac1fe9e | created table generator function for commit history | lvzrr | 2024-12-19 |
-| 3f7fb01 | added commit history table generation | lvzrr | 2024-12-19 |
