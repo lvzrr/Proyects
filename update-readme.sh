@@ -8,7 +8,7 @@ echo -e "$warning" >>README.md
 for readme in */README.md; do
     echo "Processing $readme"
 
-    proyectname="${readme%/README.md}" # This removes "/README.md" from the path to get the project name
+    proyectname="${readme%/README.md}"
 
     proyectname="$(echo -e "$proyectname" | sed -e 's/^[[:space:]]*//g' -e 's/[[:space:]]*$//g')"
 
@@ -30,3 +30,5 @@ for readme in */README.md; do
         fi
     done <"$readme"
 done
+
+git add README.md && git commit -m "Update README.md" && git push
