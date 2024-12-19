@@ -44,9 +44,9 @@ case "$option" in
     diffs=$(eval "git diff")
     echo -e "DIFFS: \n\n$diffs\n\n"
     echo -n "Please input a commit message: "
+    read -r commitmsg
     echo -e "Generating README.md for the repo...\n\n"
     gen_repo_README
-    read -r commitmsg
     git add . && git commit -m "$commitmsg" && git push
     ;;
 3) echo "Updates finished" ;;
