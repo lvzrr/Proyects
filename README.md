@@ -3,6 +3,8 @@
 **This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**
 <details>
 <summary>Clearf</summary>
+
+
 ## [Clearf](https://github.com/lvzrr/Recreational-Programming/tree/main/Clearf)
 
 > [!Note]
@@ -44,6 +46,8 @@ chmod +x ./run.sh && ./run.sh
 </details>
 <details>
 <summary>KeyWatcher</summary>
+
+
 ## [KeyWatcher](https://github.com/lvzrr/Recreational-Programming/tree/main/KeyWatcher)
 
 A multithreaded daemon to display keystrokes through the keyboard using raylib (Only works on **POSIX** operating systems, or at least in Linux)
@@ -61,11 +65,15 @@ I wouldn't change the font, bc i adjusted the buffer so it has 1 more char than 
 </details>
 <details>
 <summary>Locksmith</summary>
+
+
 ## [Locksmith](https://github.com/lvzrr/Recreational-Programming/tree/main/Locksmith)
 Random Password Generator in C 
 </details>
 <details>
 <summary>Note-Cli</summary>
+
+
 ## [Note-Cli](https://github.com/lvzrr/Recreational-Programming/tree/main/Note-Cli)
 A simple TUI TO-DO app, this uses [this other project](https://github.com/lvzrr/Proyects/tree/main/ObfusKey) for encrypting the notes
 
@@ -81,27 +89,36 @@ chmod +x run.sh
 </details>
 <details>
 <summary>ObfusKey</summary>
+
+
 ## [ObfusKey](https://github.com/lvzrr/Recreational-Programming/tree/main/ObfusKey)
 Encrypt and decrypt files using randomly generated keys
 </details>
 <details>
 <summary>Pomodoro</summary>
+
+
 ## [Pomodoro](https://github.com/lvzrr/Recreational-Programming/tree/main/Pomodoro)
 TUI for a pomodoro timer 
 </details>
 <details>
 <summary>Sniffer</summary>
+
+
 ## [Sniffer](https://github.com/lvzrr/Recreational-Programming/tree/main/Sniffer)
 A ls type util that uses nerdfonts to display files clearer than the default ls command
 </details>
 <details>
 <summary>TapRec</summary>
+
+
 ## [TapRec](https://github.com/lvzrr/Recreational-Programming/tree/main/TapRec)
 A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 </details>
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
+| fd8a494 | Update README.md | lvzrr | 2024-12-19 |
 | 8184d83 | Update README.md | lvzrr | 2024-12-19 |
 | befbf3f | Update README.md | lvzrr | 2024-12-19 |
 | 1fa8840 | ensured header in README.md | lvzrr | 2024-12-19 |
@@ -111,4 +128,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | bf693a4 | removed author, added date | lvzrr | 2024-12-19 |
 | cfd01c3 | added author to table | lvzrr | 2024-12-19 |
 | d0b3e0a | table history generation method added | lvzrr | 2024-12-19 |
-| f2a40a6 | made commithistory table | lvzrr | 2024-12-19 |
