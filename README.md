@@ -90,7 +90,8 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
-| CURRENT | Update README.md |  | 19-12-2024 |
+| CURRENT | Update README.md | lvzrr | 19-12-2024 |
+| c225094 | Update README.md | lvzrr | 2024-12-19 |
 | 2d25660 | Update README.md | lvzrr | 2024-12-19 |
 | 8f0a3ab | changed script logic | lvzrr | 2024-12-19 |
 | 690a8a4 | made a table of contents | lvzrr | 2024-12-19 |
@@ -100,4 +101,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | 651c700 | Update README.md | lvzrr | 2024-12-19 |
 | 36c21f6 | Update README.md | lvzrr | 2024-12-19 |
 | 2251294 | Update README.md | lvzrr | 2024-12-19 |
-| c17a7e7 | Update README.md | lvzrr | 2024-12-19 |
