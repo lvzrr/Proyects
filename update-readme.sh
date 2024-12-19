@@ -42,7 +42,11 @@ case "$option" in
 1) gen_repo_README && git add README.md && git commit -m "Update README.md" && git push ;;
 2)
     diffs=$(eval "git diff")
-    echo -e "DIFFS: \n\n$diffs\n\n"
+    echo -e "DIFFS: \n$diffs\n"
+    if [ "$diffs" == "" ]; then
+        echo "no changes to commit"
+        exit
+    fi
     echo -n "Please input a commit message: "
     read -r commitmsg
     echo -e "Generating README.md for the repo...\n\n"
