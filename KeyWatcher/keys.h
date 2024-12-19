@@ -8,12 +8,12 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#define WINDOW_WIDTH 300
+#define WINDOW_WIDTH 350
 #define WINDOW_HEIGHT 70
 #define FPS 144
 #define FONT "./resources/LigaSFMonoNerdFont-Regular.otf"
 #define FONT_SIZE 50
-#define BUFFER_SIZE 13
+#define BUFFER_SIZE 25
 #define EV_KEY 0x01
 
 struct input_event {

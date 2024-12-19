@@ -22,8 +22,47 @@ void *startupdater(void *arg) {
     ssize_t n = read(fd, &event, sizeof(event));
     if ((event.type == EV_KEY) && (event.value == 1 || event.value == 2) &&
         (event.code <= strlen(map + 1))) {
-      char c = map[event.code];
-      UpdateBuffer(buffer, c);
+      switch (event.code) {
+      case 0:
+        UpdateBuffer(buffer, 'e');
+        UpdateBuffer(buffer, 's');
+        UpdateBuffer(buffer, 'c');
+        UpdateBuffer(buffer, ' ');
+        break;
+      case 14:
+        UpdateBuffer(buffer, 'b');
+        UpdateBuffer(buffer, 'c');
+        UpdateBuffer(buffer, 'k');
+        UpdateBuffer(buffer, ' ');
+        break;
+      case 15:
+        UpdateBuffer(buffer, 't');
+        UpdateBuffer(buffer, 'a');
+        UpdateBuffer(buffer, 'b');
+        UpdateBuffer(buffer, ' ');
+        break;
+      case 28:
+        UpdateBuffer(buffer, '\\');
+        UpdateBuffer(buffer, 'n');
+        UpdateBuffer(buffer, ' ');
+        break;
+      case 29:
+        UpdateBuffer(buffer, '^');
+        break;
+      case 42:
+        UpdateBuffer(buffer, 's');
+        UpdateBuffer(buffer, 'h');
+        UpdateBuffer(buffer, 'f');
+        UpdateBuffer(buffer, 't');
+        UpdateBuffer(buffer, ' ');
+        break;
+      case 57:
+        UpdateBuffer(buffer, ' ');
+        break;
+      default:
+        UpdateBuffer(buffer, map[event.code]);
+        break;
+      }
     }
   }
   return NULL;
