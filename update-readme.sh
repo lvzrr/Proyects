@@ -40,7 +40,7 @@ function gen_repo_README() {
 }
 
 function gen_table() {
-    header="# Latest Commits:\n| Commit Hash | Commit Msg |\n|----------------------------|----------------------------|"
+    header="# Latest Commits:\n| Commit Hash | Commit Msg |\n|--------------|----------------------------|"
     commits=$(git log -n 10 --pretty=format:"%h %s")
 
     echo -e "$header" >>README.md
@@ -49,7 +49,7 @@ function gen_table() {
         # Split the commit hash and message
         commit_hash=$(echo "$commit" | awk '{print $1}')
         commit_msg=$(echo "$commit" | cut -d' ' -f2-)
-
+        echo "added commit $commit_hash to table"
         echo "| $commit_hash | $commit_msg |" >>README.md
     done <<<"$commits"
 }
