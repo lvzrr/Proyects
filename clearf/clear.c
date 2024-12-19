@@ -1,7 +1,4 @@
 #include "clear.h"
-#include <raylib.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 char *UpdateBuffer(char *buffer, char newChar) {
   size_t b_len = strlen(buffer);
