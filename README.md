@@ -2,7 +2,7 @@
 > [!Warning]
 **This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**
 <details>
-<summary><h1>Clearf<h1></summary>
+<summary><h3>Clearf</h3></summary>
 
 
 ## [Clearf](https://github.com/lvzrr/Recreational-Programming/tree/main/Clearf)
@@ -47,7 +47,7 @@ chmod +x ./run.sh && ./run.sh
 
 
 <details>
-<summary><h1>KeyWatcher<h1></summary>
+<summary><h3>KeyWatcher</h3></summary>
 
 
 ## [KeyWatcher](https://github.com/lvzrr/Recreational-Programming/tree/main/KeyWatcher)
@@ -68,7 +68,7 @@ I wouldn't change the font, bc i adjusted the buffer so it has 1 more char than 
 
 
 <details>
-<summary><h1>Locksmith<h1></summary>
+<summary><h3>Locksmith</h3></summary>
 
 
 ## [Locksmith](https://github.com/lvzrr/Recreational-Programming/tree/main/Locksmith)
@@ -77,7 +77,7 @@ Random Password Generator in C
 
 
 <details>
-<summary><h1>Note-Cli<h1></summary>
+<summary><h3>Note-Cli</h3></summary>
 
 
 ## [Note-Cli](https://github.com/lvzrr/Recreational-Programming/tree/main/Note-Cli)
@@ -96,7 +96,7 @@ chmod +x run.sh
 
 
 <details>
-<summary><h1>ObfusKey<h1></summary>
+<summary><h3>ObfusKey</h3></summary>
 
 
 ## [ObfusKey](https://github.com/lvzrr/Recreational-Programming/tree/main/ObfusKey)
@@ -105,7 +105,7 @@ Encrypt and decrypt files using randomly generated keys
 
 
 <details>
-<summary><h1>Pomodoro<h1></summary>
+<summary><h3>Pomodoro</h3></summary>
 
 
 ## [Pomodoro](https://github.com/lvzrr/Recreational-Programming/tree/main/Pomodoro)
@@ -114,7 +114,7 @@ TUI for a pomodoro timer
 
 
 <details>
-<summary><h1>Sniffer<h1></summary>
+<summary><h3>Sniffer</h3></summary>
 
 
 ## [Sniffer](https://github.com/lvzrr/Recreational-Programming/tree/main/Sniffer)
@@ -123,7 +123,7 @@ A ls type util that uses nerdfonts to display files clearer than the default ls 
 
 
 <details>
-<summary><h1>TapRec<h1></summary>
+<summary><h3>TapRec</h3></summary>
 
 
 ## [TapRec](https://github.com/lvzrr/Recreational-Programming/tree/main/TapRec)
@@ -134,6 +134,7 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
+| 15ac4e2 | Update README.md | lvzrr | 2024-12-19 |
 | f02aed3 | Update README.md | lvzrr | 2024-12-19 |
 | 8b500d2 | Update README.md | lvzrr | 2024-12-19 |
 | fd8a494 | Update README.md | lvzrr | 2024-12-19 |
@@ -143,4 +144,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | 94a6a3c | added date AND author to the table | lvzrr | 2024-12-19 |
 | e5435cc | Update README.md | lvzrr | 2024-12-19 |
 | ca5ebca | Update README.md | lvzrr | 2024-12-19 |
-| bf693a4 | removed author, added date | lvzrr | 2024-12-19 |
