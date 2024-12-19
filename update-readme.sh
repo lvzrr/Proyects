@@ -71,8 +71,8 @@ case "$option" in
 
     username=$(git config user.name)
 
-    gen_table "$commitmsg" "$username" "$(date "+%Y-%m-%d")"
     gen_repo_README
+    gen_table "$commitmsg" "$username" "$(date "+%Y-%m-%d")"
     git add . && git commit -m "$commitmsg" && git push
     ;;
 3) echo "Updates finished" ;;
