@@ -45,7 +45,7 @@ Inspired by [this project](https://github.com/tsoding/voidf), i decided to make 
     19  53    0.528309%  gcc
     20  51    0.508373%  gobuster
 ```
-### To run it: 
+###To run it: 
 Make sure you have raylib installed as well as the gcc compiler, then change the script _run.sh_ to fit your own, then run it like this: 
 ```bash
 chmod +x ./run.sh && ./run.sh
@@ -59,7 +59,7 @@ A multithreaded daemon to display keystrokes through the keyboard using raylib (
 > [!Warning]
 I'm currently working on it, it can't display certain symbols yet (basically because of raylib's shitty UTF-8 render implementation)
 
-### To run it
+###To run it
 Ensure gcc and raylib are installed and change the paths in run.sh, then: 
 ```bash 
 chmod +x run.sh && ./run.sh
@@ -92,6 +92,7 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
+| cdcd41a | Update README.md | lvzrr | 2024-12-19 |
 | 651c700 | Update README.md | lvzrr | 2024-12-19 |
 | 36c21f6 | Update README.md | lvzrr | 2024-12-19 |
 | 2251294 | Update README.md | lvzrr | 2024-12-19 |
@@ -101,4 +102,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | f023b6c | Update README.md | lvzrr | 2024-12-19 |
 | 5d772b3 | Update README.md | lvzrr | 2024-12-19 |
 | 15ac4e2 | Update README.md | lvzrr | 2024-12-19 |
-| f02aed3 | Update README.md | lvzrr | 2024-12-19 |
