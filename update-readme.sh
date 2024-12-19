@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "1. Update REASME.md files\n2. Commit all changes"
+echo -e -n "1. Update REASME.md files\n2. Commit all changes\n3. Dont push changes\n\nSelect an option: "
 
 read -r option
 
@@ -39,8 +39,10 @@ case "$option" in
 2)
     diffs=$(eval "git diff")
     echo -e "DIFFS: \n\n$diffs\n\n"
-    echo "Please input a commit message"
+    echo -n "Please input a commit message"
     read -r commitmsg
     git add . && git commit -m "$commitmsg" && git push
     ;;
+3) echo "Updates finished" ;;
+*) echo "error" ;;
 esac
