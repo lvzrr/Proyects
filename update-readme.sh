@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "1. Commit all changes\n2. Only update the readme"
+echo -e "1. Update REASME.md files\n2. Commit all changes"
 
 read -r option
 
