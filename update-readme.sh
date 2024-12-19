@@ -4,42 +4,48 @@ echo -e -n "1. Update REASME.md files\n2. Commit all changes\n3. Dont push chang
 
 read -r option
 
-sed -i '/# RECREATIONAL PROGRAMMING/!d' README.md
+function gen_repo_README() {
 
-warning="> [!Warning]\n**This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**"
-echo -e "$warning" >>README.md
+    sed -i '/# RECREATIONAL PROGRAMMING/!d' README.md
 
-for readme in */README.md; do
-    proyectname="${readme%/README.md}"
+    warning="> [!Warning]\n**This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**"
+    echo -e "$warning" >>README.md
 
-    proyectname="$(echo -e "$proyectname" | sed -e 's/^[[:space:]]*//g' -e 's/[[:space:]]*$//g')"
+    for readme in */README.md; do
+        proyectname="${readme%/README.md}"
 
-    while IFS= read -r line; do
-        if [[ "$line" == \#* ]]; then
-            line_no_header="${line#\# }"
+        proyectname="$(echo -e "$proyectname" | sed -e 's/^[[:space:]]*//g' -e 's/[[:space:]]*$//g')"
 
-            lineheader="${line%%[^#]*}"
+        while IFS= read -r line; do
+            if [[ "$line" == \#* ]]; then
+                line_no_header="${line#\# }"
 
-            lineheader="$(echo -e "$lineheader" | sed -e 's/^[[:space:]]*//g' -e 's/[[:space:]]*$//g')"
+                lineheader="${line%%[^#]*}"
 
-            if [[ "$line_no_header" == "$proyectname" ]]; then
-                echo -e "${lineheader}# [$proyectname](https://github.com/lvzrr/Recreational-Programming/tree/main/$proyectname)" >>README.md
+                lineheader="$(echo -e "$lineheader" | sed -e 's/^[[:space:]]*//g' -e 's/[[:space:]]*$//g')"
+
+                if [[ "$line_no_header" == "$proyectname" ]]; then
+                    echo -e "${lineheader}# [$proyectname](https://github.com/lvzrr/Recreational-Programming/tree/main/$proyectname)" >>README.md
+                else
+                    echo -e "#$line" >>README.md
+                fi
             else
-                echo -e "#$line" >>README.md
+                echo -e "$line" >>README.md
             fi
-        else
-            echo -e "$line" >>README.md
-        fi
-    done <"$readme"
-    echo "[+] $readme"
-done
-echo -e "\n\n"
+        done <"$readme"
+        echo "[+] $readme"
+    done
+    echo -e "\n\n"
+
+}
 case "$option" in
-1) git add README.md && git commit -m "Update README.md" && git push ;;
+1) gen_repo_README && git add README.md && git commit -m "Update README.md" && git push ;;
 2)
     diffs=$(eval "git diff")
     echo -e "DIFFS: \n\n$diffs\n\n"
     echo -n "Please input a commit message: "
+    echo -e "Generating README.md for the repo...\n\n"
+    gen_repo_README
     read -r commitmsg
     git add . && git commit -m "$commitmsg" && git push
     ;;
