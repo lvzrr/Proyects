@@ -44,6 +44,8 @@ chmod +x ./run.sh && ./run.sh
 > [!Warning]
 **CLEARF IS COMING**
 </details>
+
+
 <details>
 <summary>KeyWatcher</summary>
 
@@ -63,6 +65,8 @@ chmod +x run.sh && ./run.sh
 > [!Note] 
 I wouldn't change the font, bc i adjusted the buffer so it has 1 more char than the display, but you do you
 </details>
+
+
 <details>
 <summary>Locksmith</summary>
 
@@ -70,6 +74,8 @@ I wouldn't change the font, bc i adjusted the buffer so it has 1 more char than 
 ## [Locksmith](https://github.com/lvzrr/Recreational-Programming/tree/main/Locksmith)
 Random Password Generator in C 
 </details>
+
+
 <details>
 <summary>Note-Cli</summary>
 
@@ -87,6 +93,8 @@ chmod +x run.sh
 
 
 </details>
+
+
 <details>
 <summary>ObfusKey</summary>
 
@@ -94,6 +102,8 @@ chmod +x run.sh
 ## [ObfusKey](https://github.com/lvzrr/Recreational-Programming/tree/main/ObfusKey)
 Encrypt and decrypt files using randomly generated keys
 </details>
+
+
 <details>
 <summary>Pomodoro</summary>
 
@@ -101,6 +111,8 @@ Encrypt and decrypt files using randomly generated keys
 ## [Pomodoro](https://github.com/lvzrr/Recreational-Programming/tree/main/Pomodoro)
 TUI for a pomodoro timer 
 </details>
+
+
 <details>
 <summary>Sniffer</summary>
 
@@ -108,6 +120,8 @@ TUI for a pomodoro timer
 ## [Sniffer](https://github.com/lvzrr/Recreational-Programming/tree/main/Sniffer)
 A ls type util that uses nerdfonts to display files clearer than the default ls command
 </details>
+
+
 <details>
 <summary>TapRec</summary>
 
@@ -115,9 +129,12 @@ A ls type util that uses nerdfonts to display files clearer than the default ls 
 ## [TapRec](https://github.com/lvzrr/Recreational-Programming/tree/main/TapRec)
 A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 </details>
+
+
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
+| 8b500d2 | Update README.md | lvzrr | 2024-12-19 |
 | fd8a494 | Update README.md | lvzrr | 2024-12-19 |
 | 8184d83 | Update README.md | lvzrr | 2024-12-19 |
 | befbf3f | Update README.md | lvzrr | 2024-12-19 |
@@ -127,4 +144,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | ca5ebca | Update README.md | lvzrr | 2024-12-19 |
 | bf693a4 | removed author, added date | lvzrr | 2024-12-19 |
 | cfd01c3 | added author to table | lvzrr | 2024-12-19 |
-| d0b3e0a | table history generation method added | lvzrr | 2024-12-19 |
