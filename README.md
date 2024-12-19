@@ -1,3 +1,4 @@
+# RECREATINAL PROGRAMMING
 > [!Warning]
 **This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**
 ## [Clearf](https://github.com/lvzrr/Recreational-Programming/tree/main/Clearf)
@@ -77,6 +78,7 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
+| 94a6a3c | added date AND author to the table | lvzrr | 2024-12-19 |
 | e5435cc | Update README.md | lvzrr | 2024-12-19 |
 | ca5ebca | Update README.md | lvzrr | 2024-12-19 |
 | bf693a4 | removed author, added date | lvzrr | 2024-12-19 |
@@ -86,4 +88,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | ac1fe9e | created table generator function for commit history | lvzrr | 2024-12-19 |
 | 3f7fb01 | added commit history table generation | lvzrr | 2024-12-19 |
 | 9ccc538 | Updated Script | lvzrr | 2024-12-19 |
-| dc213bb | updated README | lvzrr | 2024-12-19 |

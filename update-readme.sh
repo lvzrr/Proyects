@@ -1,12 +1,11 @@
 #!/bin/bash
+echo "# RECREATINAL PROGRAMMING" >README.md
 
 echo -e -n "1. Update README.md files\n2. Commit all changes\n3. Dont push changes\n\nSelect an option: "
 
 read -r option
 
 function gen_repo_README() {
-
-    sed -i '/# RECREATIONAL PROGRAMMING/!d' README.md
 
     warning="> [!Warning]\n**This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**"
     echo -e "$warning" >>README.md
