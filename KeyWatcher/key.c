@@ -15,7 +15,7 @@ char *UpdateBuffer(char *buffer, char newChar) {
 }
 
 void *startupdater(void *arg) {
-  char *map = "..1234567890'¡#qwertyuiop.+.@asdfghjklñ._.zxcvbnm,.-_..\\";
+  char *map = ".1234567890'¡*#qwertyuiop.+.@asdfghjklñ._.zxcvbnm,.-_..\\";
 
   char *buffer = (char *)arg;
   int fd = open(SOCKET, O_RDONLY);
@@ -33,7 +33,7 @@ void *startupdater(void *arg) {
 }
 
 void Window_Manager(char *buffer) {
-
+  SetConfigFlags(FLAG_BORDERLESS_WINDOWED_MODE);
   InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Keys");
   SetTargetFPS(FPS);
   int glyphCount = 200 - 32;
@@ -60,7 +60,7 @@ void Window_Manager(char *buffer) {
 }
 int main() {
   char *buffer = calloc(sizeof(char), BUFFER_SIZE);
-  strcpy(buffer, "Hello World");
+  strcpy(buffer, "           ");
   Window_Manager(buffer);
   free(buffer);
 }
