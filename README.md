@@ -76,15 +76,15 @@ A ls type util that uses nerdfonts to display files clearer than the default ls 
 ## [TapRec](https://github.com/lvzrr/Recreational-Programming/tree/main/TapRec)
 A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 # Latest Commits:
-| Commit Hash | Commit Msg |
-|--------------|----------------------------|
-| f2a40a6 | made commithistory table |
-| ac1fe9e | created table generator function for commit history |
-| 3f7fb01 | added commit history table generation |
-| 9ccc538 | Updated Script |
-| dc213bb | updated README |
-| 0df874b | remove advoc2024 |
-| 7f67971 | updated script |
-| 02853a9 | updated script |
-| abad32a | Updated script |
-| ab3254b | updated script |
+| Commit Hash | Commit Msg | Author |
+|--------------|----------------------------|-----------|
+| d0b3e0a | table history generation method added lvzrr | history |
+| f2a40a6 | made commithistory table lvzrr | commithistory |
+| ac1fe9e | created table generator function for commit history lvzrr | table |
+| 3f7fb01 | added commit history table generation lvzrr | commit |
+| 9ccc538 | Updated Script lvzrr | Script |
+| dc213bb | updated README lvzrr | README |
+| 0df874b | remove advoc2024 lvzrr | advoc2024 |
+| 7f67971 | updated script lvzrr | script |
+| 02853a9 | updated script lvzrr | script |
+| abad32a | Updated script lvzrr | script |
