@@ -6,7 +6,7 @@ A multithreaded daemon to display keystrokes through the keyboard using raylib (
 I'm currently working on it, it can't display certain symbols yet (basically because of raylib's shitty UTF-8 render implementation)
 
 ## To run it
-First change the paths in run.sh, then: 
+Ensure gcc and raylib are installed and change the paths in run.sh, then: 
 ```bash 
 chmod +x run.sh && ./run.sh
 ```
