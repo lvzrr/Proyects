@@ -1,4 +1,4 @@
-# Clearf is coming ...
+# Clearf
 
 Inspired by [this project](https://github.com/tsoding/voidf), i decided to make my own (much simpler but it still works ig), and i decided to use my most used command in the last month for it: 
 
@@ -31,3 +31,5 @@ Make sure you have raylib installed as well as the gcc compiler, then change the
 ```bash
 chmod +x ./run.sh && ./run.sh
 ```
+> [!Warning]
+**CLEARF IS COMING**

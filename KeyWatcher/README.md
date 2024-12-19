@@ -1,4 +1,4 @@
-# KeyWatcher 
+# KeyWatcher
 
 A multithreaded daemon to display keystrokes through the keyboard using raylib (Only works on **POSIX** operating systems, or at least in Linux)
 
