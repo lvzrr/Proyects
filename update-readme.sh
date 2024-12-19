@@ -1,9 +1,22 @@
 #!/bin/bash
-echo -e -n "1. Update README.md files\n2. Commit all changes\n3. Dont push changes\n\nSelect an option: "
+function gen_table() {
+    header="# Latest Commits:\n| Commit Hash | Commit Msg | Author | Date |\n|-------------|------------|--------|------|"
 
-read -r option
-echo "" >README.md
+    commits=$(git log -n 10 --pretty=format:"%h|%s|%an|%as")
 
+    echo -e "$header" >>README.md
+
+    while IFS= read -r commit; do
+        commit_hash=$(echo "$commit" | cut -d'|' -f1)
+        commit_msg=$(echo "$commit" | cut -d'|' -f2)
+        author=$(echo "$commit" | cut -d'|' -f3)
+        date=$(echo "$commit" | cut -d'|' -f4)
+
+        echo "| $commit_hash | $commit_msg | $author | $date |" >>README.md
+    done <<<"$commits"
+
+    echo "Table successfully added to README.md"
+}
 function gen_repo_README() {
     toc="## Table of contents:\n"
     header="# RECREATINAL PROGRAMMING\n> [!Warning]\n**This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**"
@@ -34,30 +47,17 @@ function gen_repo_README() {
         echo "[+] $readme"
     done
     echo -e "$header\n$toc\n$readme_md" >>README.md
+    gen_table
     echo -e "\n\n"
 }
 
-function gen_table() {
-    header="# Latest Commits:\n| Commit Hash | Commit Msg | Author | Date |\n|-------------|------------|--------|------|"
+echo -e -n "1. Update README.md files\n2. Commit all changes\n3. Dont push changes\n\nSelect an option: "
 
-    commits=$(git log -n 10 --pretty=format:"%h|%s|%an|%as")
-
-    echo -e "$header" >>README.md
-
-    while IFS= read -r commit; do
-        commit_hash=$(echo "$commit" | cut -d'|' -f1)
-        commit_msg=$(echo "$commit" | cut -d'|' -f2)
-        author=$(echo "$commit" | cut -d'|' -f3)
-        date=$(echo "$commit" | cut -d'|' -f4)
-
-        echo "| $commit_hash | $commit_msg | $author | $date |" >>README.md
-    done <<<"$commits"
-
-    echo "Table successfully added to README.md"
-}
+read -r option
+echo "" >README.md
 
 case "$option" in
-1) gen_repo_README && gen_table && git add README.md && git commit -m "Update README.md" && git push ;;
+1) gen_repo_README && git add README.md && git commit -m "Update README.md" && git push ;;
 2)
     diffs=$(eval "git diff")
     echo -e "DIFFS: \n$diffs\n"
@@ -69,7 +69,6 @@ case "$option" in
     read -r commitmsg
     echo -e "Generating README.md for the repo...\n\n"
     gen_repo_README
-    gen_table
     git add . && git commit -m "$commitmsg" && git push
     ;;
 3) echo "Updates finished" ;;
