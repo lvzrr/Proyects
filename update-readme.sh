@@ -38,8 +38,24 @@ function gen_repo_README() {
     echo -e "\n\n"
 
 }
+
+function gen_table() {
+    header="# Latest Commits:\n| Commit Hash | Commit Msg |\n|-------------|------------|"
+    commits=$(git log -n 10 --pretty=format:"%h %s")
+
+    echo -e "$header"
+
+    while IFS= read -r commit; do
+        # Split the commit hash and message
+        commit_hash=$(echo "$commit" | awk '{print $1}')
+        commit_msg=$(echo "$commit" | cut -d' ' -f2-)
+
+        echo "| $commit_hash | $commit_msg |" >>README.md
+    done <<<"$commits"
+}
+
 case "$option" in
-1) gen_repo_README && git add README.md && git commit -m "Update README.md" && git push ;;
+1) gen_repo_README && git add README.md && git commit -m "Update README.md" && git push && gen_table ;;
 2)
     diffs=$(eval "git diff")
     echo -e "DIFFS: \n$diffs\n"
@@ -52,6 +68,7 @@ case "$option" in
     echo -e "Generating README.md for the repo...\n\n"
     gen_repo_README
     git add . && git commit -m "$commitmsg" && git push
+    gen_table
     ;;
 3) echo "Updates finished" ;;
 *) echo "error" ;;
