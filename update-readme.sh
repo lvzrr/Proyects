@@ -12,9 +12,9 @@ for readme in */README.md; do
 
     while IFS= read -r line; do
         if [[ "$line" == \#* ]]; then
-            echo "#$line [$proyectname](https://github.com/lvzrr/Recreational-Programming/tree/main/$proyectname)" >>README.md
+            echo -e "#$line \t[🔗$proyectname](https://github.com/lvzrr/Recreational-Programming/tree/main/$proyectname)" >>README.md
         else
-            echo "$line" >>README.md
+            echo -e "$line" >>README.md
         fi
     done <"$readme"
 done
