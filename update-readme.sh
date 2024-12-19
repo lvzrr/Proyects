@@ -40,19 +40,22 @@ function gen_repo_README() {
 }
 
 function gen_table() {
-    header="# Latest Commits:\n| Commit Hash | Commit Msg | Date |\n|--------------|----------------------------|-----------|"
-    commits=$(git log -n 10 --pretty=format:"%h %s %as")
+    header="# Latest Commits:\n| Commit Hash | Commit Msg | Author | Date |\n|-------------|------------|--------|------|"
+
+    commits=$(git log -n 10 --pretty=format:"%h|%s|%an|%as")
 
     echo -e "$header" >>README.md
 
     while IFS= read -r commit; do
-        # Split the commit hash and message
-        commit_hash=$(echo "$commit" | awk '{print $1}')
-        commit_msg=$(echo "$commit" | cut -d' ' -f2-)
-        date=$(echo "$commit" | awk '{print $3}')
-        echo "added commit $commit_hash to table"
-        echo "| $commit_hash | $commit_msg | $date |" >>README.md
+        commit_hash=$(echo "$commit" | cut -d'|' -f1)
+        commit_msg=$(echo "$commit" | cut -d'|' -f2)
+        author=$(echo "$commit" | cut -d'|' -f3)
+        date=$(echo "$commit" | cut -d'|' -f4)
+
+        echo "| $commit_hash | $commit_msg | $author | $date |" >>README.md
     done <<<"$commits"
+
+    echo "Table successfully added to README.md"
 }
 
 case "$option" in
