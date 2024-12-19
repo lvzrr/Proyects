@@ -26,7 +26,7 @@ Inspired by [this project](https://github.com/tsoding/voidf), i decided to make 
     19  53    0.528309%  gcc
     20  51    0.508373%  gobuster
 ```
-# To run it: 
+## To run it: 
 Make sure you have raylib installed as well as the gcc compiler, then change the script _run.sh_ to fit your own, then run it like this: 
 ```bash
 chmod +x ./run.sh && ./run.sh
