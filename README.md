@@ -78,6 +78,7 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
+| 9cd077c | updated script, no expandables as the fuck up the notes | lvzrr | 2024-12-19 |
 | f023b6c | Update README.md | lvzrr | 2024-12-19 |
 | 5d772b3 | Update README.md | lvzrr | 2024-12-19 |
 | 15ac4e2 | Update README.md | lvzrr | 2024-12-19 |
@@ -87,4 +88,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | 8184d83 | Update README.md | lvzrr | 2024-12-19 |
 | befbf3f | Update README.md | lvzrr | 2024-12-19 |
 | 1fa8840 | ensured header in README.md | lvzrr | 2024-12-19 |
-| 94a6a3c | added date AND author to the table | lvzrr | 2024-12-19 |
