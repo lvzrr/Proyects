@@ -1,5 +1,6 @@
 # RECREATIONAL PROGRAMMING
-> [!Warning]\n*This is a personal repo for personal use, code might be _*UNSAFE*_, not well documented or unintuitive, use at your own risk*
+> [!Warning]
+*This is a personal repo for personal use, code might be _*UNSAFE*_, not well documented or unintuitive, use at your own risk*
 ## Clearf is coming ...
 
 Inspired by [this project](https://github.com/tsoding/voidf), i decided to make my own (much simpler but it still works ig), and i decided to use my most used command in the last month for it: 
@@ -28,7 +29,7 @@ Inspired by [this project](https://github.com/tsoding/voidf), i decided to make 
     19  53    0.528309%  gcc
     20  51    0.508373%  gobuster
 ```
-# To run it: 
+## To run it: 
 Make sure you have raylib installed as well as the gcc compiler, then change the script _run.sh_ to fit your own, then run it like this: 
 ```bash
 chmod +x ./run.sh && ./run.sh
@@ -40,7 +41,7 @@ A multithreaded daemon to display keystrokes through the keyboard using raylib (
 > [!Warning]
 I'm currently working on it, it can't display certain symbols yet (basically because of raylib's shitty UTF-8 render implementation)
 
-## To run it
+### To run it
 Ensure gcc and raylib are installed and change the paths in run.sh, then: 
 ```bash 
 chmod +x run.sh && ./run.sh
@@ -59,6 +60,8 @@ Precompiled proyect uses **MY OWN DIRECTORIES**, change the path macros in Note-
 chmod +x run.sh
 ./run.sh
 ```
+
+
 ## ObfusKey / D-ObfusKey
 Encrypt and decrypt files using randomly generated keys
 ## Pomodoro
