@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo -e "1. Commit all changes\n2. Only update the readme"
+
+read option
+
 sed -i '/# RECREATIONAL PROGRAMMING/!d' README.md
 
 warning="> [!Warning]\n**This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**"
@@ -31,4 +35,7 @@ for readme in */README.md; do
     done <"$readme"
 done
 
-git add README.md && git commit -m "Update README.md" && git push
+case "$option" in
+1) git add README.md && git commit -m "Update README.md" && git push ;;
+2) git add . && git commit -m "scripted commit" && git push ;;
+esac
