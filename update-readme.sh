@@ -20,7 +20,7 @@ function gen_table() {
 
 function gen_repo_README() {
     toc="## Table of contents:\n"
-    header="# RECREATINAL PROGRAMMING\n> [!Warning]\n**This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**"
+    header="# RECREATIONAL PROGRAMMING\n> [!Warning]\n**This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**"
     readme_md=""
     for readme in */README.md; do
         proyectname="${readme%/README.md}"

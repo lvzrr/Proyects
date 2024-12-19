@@ -1,5 +1,5 @@
 
-# RECREATINAL PROGRAMMING
+# RECREATIONAL PROGRAMMING
 > [!Warning]
 **This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**
 ## Table of contents:
@@ -90,7 +90,8 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
-| CURRENT | fix commit history placement | lvzrr | 2024-12-19 |
+| CURRENT | fixed typo | lvzrr | 2024-12-19 |
+| d7cf927 | fix commit history placement | lvzrr | 2024-12-19 |
 | 166eccb | support for current commit | lvzrr | 2024-12-19 |
 | ed9fe87 | Update README.md | lvzrr | 2024-12-19 |
 | c225094 | Update README.md | lvzrr | 2024-12-19 |
@@ -100,4 +101,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | e92c427 | Update README.md | lvzrr | 2024-12-19 |
 | b58b886 | Update README.md | lvzrr | 2024-12-19 |
 | cdcd41a | Update README.md | lvzrr | 2024-12-19 |
-| 651c700 | Update README.md | lvzrr | 2024-12-19 |
