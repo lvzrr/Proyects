@@ -39,7 +39,7 @@ case "$option" in
 2)
     diffs=$(eval "git diff")
     echo -e "DIFFS: \n\n$diffs\n\n"
-    echo -n "Please input a commit message"
+    echo -n "Please input a commit message: "
     read -r commitmsg
     git add . && git commit -m "$commitmsg" && git push
     ;;
