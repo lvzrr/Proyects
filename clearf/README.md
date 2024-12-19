@@ -1,6 +1,6 @@
 # Clearf is coming ...
 
-Inspired by [this project](https://github.com/tsoding/voidf), i decided to make my own, and i decided to use my most used command in the last month for it: 
+Inspired by [this project](https://github.com/tsoding/voidf), i decided to make my own (much simpler but it still works ig), and i decided to use my most used command in the last month for it: 
 
 ```bash
 > zhs_stats
