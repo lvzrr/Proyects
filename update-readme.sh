@@ -40,10 +40,10 @@ function gen_repo_README() {
 }
 
 function gen_table() {
-    header="# Latest Commits:\n| Commit Hash | Commit Msg |\n|-------------|------------|"
+    header="# Latest Commits:\n| Commit Hash | Commit Msg |\n|----------------------------|----------------------------|"
     commits=$(git log -n 10 --pretty=format:"%h %s")
 
-    echo -e "$header"
+    echo -e "$header" >>README.md
 
     while IFS= read -r commit; do
         # Split the commit hash and message
