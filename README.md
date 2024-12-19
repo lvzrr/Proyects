@@ -35,7 +35,9 @@ Make sure you have raylib installed as well as the gcc compiler, then change the
 chmod +x ./run.sh && ./run.sh
 ```
 
+
 ---
+
 ## KeyWatcher 
 
 A multithreaded daemon to display keystrokes through the keyboard using raylib (Only works on **POSIX** operating systems, or at least in Linux)
@@ -51,11 +53,15 @@ chmod +x run.sh && ./run.sh
 > [!Note] 
 I wouldn't change the font, bc i adjusted the buffer so it has 1 more char than the display, but you do you
 
+
 ---
+
 ## Locksmith
 Random Password Generator in C 
 
+
 ---
+
 ## Note-Cli
 A simple TUI TO-DO app, this uses [this other project](https://github.com/lvzrr/Proyects/tree/main/ObfusKey) for encrypting the notes
 
@@ -69,20 +75,30 @@ chmod +x run.sh
 
 
 
+
 ---
+
 ## ObfusKey / D-ObfusKey
 Encrypt and decrypt files using randomly generated keys
 
+
 ---
+
 ## Pomodoro
 TUI for a pomodoro timer 
 
+
 ---
+
 ## Sniffer
 A ls type util that uses nerdfonts to display files clearer than the default ls command
 
+
 ---
+
 ## TapRec
 A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 
+
 ---
+

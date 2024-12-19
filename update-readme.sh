@@ -16,5 +16,5 @@ for readme in */README.md; do
             echo "$line" >>README.md
         fi
     done <"$readme"
-    printf "\n---\n" >>README.md
+    printf "\n\n---\n\n" >>README.md
 done
