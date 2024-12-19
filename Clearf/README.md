@@ -1,5 +1,8 @@
 # Clearf
 
+> [!Note]
+Only works in **POSIX** systems, or at least in linux, as it gets keystrokes data directly from the driver
+
 Inspired by [this project](https://github.com/tsoding/voidf), i decided to make my own (much simpler but it still works ig), and i decided to use my most used command in the last month for it: 
 
 ```bash
