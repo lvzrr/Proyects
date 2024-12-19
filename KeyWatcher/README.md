@@ -10,3 +10,5 @@ First change the paths in run.sh, then:
 ```bash 
 chmod +x run.sh && ./run.sh
 ```
+> [!Note] 
+I wouldn't change the font, bc i adjusted the buffer so it has 1 more char than the display, but you do you

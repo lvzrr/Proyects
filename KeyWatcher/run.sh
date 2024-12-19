@@ -4,11 +4,12 @@ echo "Getting Keyboard Device Stream..."
 device=$(more /proc/bus/input/devices | grep led)
 arr=($device)
 
-checkheader=$(cmd <~/dev/KeyWatcher/keys.h | grep event)
-if [ "$checkheader" != "" ]; then
-    sed -i "/$checkheader/d" ~/dev/KeyWatcher/keys.h
-fi
+checkheader=$(cat ~/dev/KeyWatcher/keys.h | grep "#define SOCKET")
 
+if [ "$checkheader" != "" ]; then
+    echo "Removing line  $checkheader"
+    sed -i '/#define SOCKET/d' ~/dev/KeyWatcher/keys.h
+fi
 for i in "${arr[@]}"; do
     if [[ "$i" == event* ]]; then
         echo "Keyboard Found At: /dev/input/$i"

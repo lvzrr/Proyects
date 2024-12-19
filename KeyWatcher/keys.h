@@ -25,8 +25,3 @@ struct input_event {
 
 // SOCKET SCRIPT RESULT:
 #define SOCKET "/dev/input/event6"
-#define SOCKET "/dev/input/event6"
-#define SOCKET "/dev/input/event6"
-#define SOCKET "/dev/input/event6"
-#define SOCKET "/dev/input/event6"
-#define SOCKET "/dev/input/event6"
