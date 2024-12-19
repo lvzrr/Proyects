@@ -31,4 +31,3 @@ Make sure you have raylib installed as well as the gcc compiler, then change the
 ```bash
 chmod +x ./run.sh && ./run.sh
 ```
-```
