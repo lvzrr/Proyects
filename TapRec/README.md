@@ -1,2 +1,2 @@
-# TapRecc
-A simple audio recorder, in rust with somewhat of a waveform visualizer in the terminal
+# TapRec
+A simple audio recorder, with somewhat of a waveform visualizer in the terminal
