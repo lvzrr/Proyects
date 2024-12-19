@@ -6,12 +6,15 @@ warning="> [!Warning]\n**This is a personal repo for personal use, code might be
 
 echo -e "$warning" >>README.md
 
+BLUE='\033[34m'
+RESET='\033[0m'
+
 for readme in */README.md; do
     echo "Processing $readme"
 
     while IFS= read -r line; do
         if [[ "$line" == \#* ]]; then
-            echo "$$\color{lightblue}{#$line}$$" >>README.md
+            echo "$BLUE#$line$RESET" >>README.md
         else
             echo "$line" >>README.md
         fi
