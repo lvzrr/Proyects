@@ -1,7 +1,7 @@
 # RECREATIONAL PROGRAMMING
 > [!Warning]
 **This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**
-## [clearf](https://github.com/lvzrr/Recreational-Programming/tree/main/clearf)
+## Clearf is coming ...
 
 Inspired by [this project](https://github.com/tsoding/voidf), i decided to make my own (much simpler but it still works ig), and i decided to use my most used command in the last month for it: 
 
@@ -29,28 +29,28 @@ Inspired by [this project](https://github.com/tsoding/voidf), i decided to make 
     19  53    0.528309%  gcc
     20  51    0.508373%  gobuster
 ```
-### [clearf](https://github.com/lvzrr/Recreational-Programming/tree/main/clearf)
+### To run it: 
 Make sure you have raylib installed as well as the gcc compiler, then change the script _run.sh_ to fit your own, then run it like this: 
 ```bash
 chmod +x ./run.sh && ./run.sh
 ```
-## [KeyWatcher](https://github.com/lvzrr/Recreational-Programming/tree/main/KeyWatcher)
+## KeyWatcher 
 
 A multithreaded daemon to display keystrokes through the keyboard using raylib (Only works on **POSIX** operating systems, or at least in Linux)
 
 > [!Warning]
 I'm currently working on it, it can't display certain symbols yet (basically because of raylib's shitty UTF-8 render implementation)
 
-### [KeyWatcher](https://github.com/lvzrr/Recreational-Programming/tree/main/KeyWatcher)
+### To run it
 Ensure gcc and raylib are installed and change the paths in run.sh, then: 
 ```bash 
 chmod +x run.sh && ./run.sh
 ```
 > [!Note] 
 I wouldn't change the font, bc i adjusted the buffer so it has 1 more char than the display, but you do you
-## [Locksmith](https://github.com/lvzrr/Recreational-Programming/tree/main/Locksmith)
+## Locksmith
 Random Password Generator in C 
-## [Note-Cli](https://github.com/lvzrr/Recreational-Programming/tree/main/Note-Cli)
+## Note-Cli
 A simple TUI TO-DO app, this uses [this other project](https://github.com/lvzrr/Proyects/tree/main/ObfusKey) for encrypting the notes
 
 > [!NOTE]
@@ -62,11 +62,11 @@ chmod +x run.sh
 ```
 
 
-## [ObfusKey](https://github.com/lvzrr/Recreational-Programming/tree/main/ObfusKey)
+## ObfusKey / D-ObfusKey
 Encrypt and decrypt files using randomly generated keys
-## [Pomodoro](https://github.com/lvzrr/Recreational-Programming/tree/main/Pomodoro)
+## Pomodoro
 TUI for a pomodoro timer 
-## [Sniffer](https://github.com/lvzrr/Recreational-Programming/tree/main/Sniffer)
+## Sniffer
 A ls type util that uses nerdfonts to display files clearer than the default ls command
-## [TapRec](https://github.com/lvzrr/Recreational-Programming/tree/main/TapRec)
+## TapRec
 A simple audio recorder, with somewhat of a waveform visualizer in the terminal

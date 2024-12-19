@@ -14,7 +14,11 @@ for readme in */README.md; do
         if [[ "$line" == \#* ]]; then
             line_no_header="${line#\#}"
             lineheader="${line%%[^#]*}"
-            echo -e "${lineheader}# [$proyectname](https://github.com/lvzrr/Recreational-Programming/tree/main/$proyectname)" >>README.md
+            if [[ "$line_no_header" == "$proyectname" ]]; then
+                echo -e "${lineheader}# [$proyectname](https://github.com/lvzrr/Recreational-Programming/tree/main/$proyectname)" >>README.md
+            else
+                echo -e "#$line" >>README.md
+            fi
         else
             echo -e "$line" >>README.md
         fi
