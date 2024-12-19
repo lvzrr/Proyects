@@ -33,7 +33,7 @@ for readme in */README.md; do
     done <"$readme"
     echo "[+] $readme"
 done
-
+echo -e "\n\n"
 case "$option" in
 1) git add README.md && git commit -m "Update README.md" && git push ;;
 2)
