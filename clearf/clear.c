@@ -48,7 +48,7 @@ void *startupdater(void *args) {
 
 pthread_mutex_t buffer_mutex = PTHREAD_MUTEX_INITIALIZER;
 void Window_Manager(char *buffer) {
-  InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Keys");
+  InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Clearf is coming");
   SetTargetFPS(FPS);
   int glyphCount = 95;
   int *codepoints = (int *)malloc(glyphCount * sizeof(int));
