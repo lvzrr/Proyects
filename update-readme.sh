@@ -1,15 +1,13 @@
 #!/bin/bash
-echo "# RECREATINAL PROGRAMMING" >README.md
-
 echo -e -n "1. Update README.md files\n2. Commit all changes\n3. Dont push changes\n\nSelect an option: "
 
 read -r option
+echo "" >README.md
 
 function gen_repo_README() {
-
-    warning="> [!Warning]\n**This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**"
-    echo -e "$warning" >>README.md
-
+    toc="## Table of contents:\n"
+    header="# RECREATINAL PROGRAMMING\n> [!Warning]\n**This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**"
+    readme_md=""
     for readme in */README.md; do
         proyectname="${readme%/README.md}"
 
@@ -24,18 +22,19 @@ function gen_repo_README() {
                 lineheader="$(echo -e "$lineheader" | sed -e 's/^[[:space:]]*//g' -e 's/[[:space:]]*$//g')"
 
                 if [[ "$line_no_header" == "$proyectname" ]]; then
-                    echo -e "${lineheader}# [$proyectname](https://github.com/lvzrr/Recreational-Programming/tree/main/$proyectname)" >>README.md
+                    readme_md+="${lineheader}# [$proyectname](https://github.com/lvzrr/Recreational-Programming/tree/main/$proyectname)\n" >>README.md
+                    toc+="- [$proyectname](#$proyectname)\n"
                 else
-                    echo -e "#$line" >>README.md
+                    readme_md+="#$line\n" >>README.md
                 fi
             else
-                echo -e "$line" >>README.md
+                readme_md+="$line\n" >>README.md
             fi
         done <"$readme"
         echo "[+] $readme"
     done
+    echo -e "$header\n$toc\n$readme_md" >>README.md
     echo -e "\n\n"
-
 }
 
 function gen_table() {

@@ -4,9 +4,7 @@
 **This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**
 ## Table of contents:
 - [Clearf](#Clearf)
-	 - [Clearf](##To run it: )
 - [KeyWatcher](#KeyWatcher)
-	 - [KeyWatcher](##To run it)
 - [Locksmith](#Locksmith)
 - [Note-Cli](#Note-Cli)
 - [ObfusKey](#ObfusKey)
@@ -92,6 +90,7 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
+| e92c427 | Update README.md | lvzrr | 2024-12-19 |
 | b58b886 | Update README.md | lvzrr | 2024-12-19 |
 | cdcd41a | Update README.md | lvzrr | 2024-12-19 |
 | 651c700 | Update README.md | lvzrr | 2024-12-19 |
@@ -101,4 +100,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | 16968e1 | Update README.md | lvzrr | 2024-12-19 |
 | 9cd077c | updated script, no expandables as the fuck up the notes | lvzrr | 2024-12-19 |
 | f023b6c | Update README.md | lvzrr | 2024-12-19 |
-| 5d772b3 | Update README.md | lvzrr | 2024-12-19 |
