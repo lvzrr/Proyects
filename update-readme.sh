@@ -55,7 +55,7 @@ function gen_table() {
 }
 
 case "$option" in
-1) gen_repo_README && git add README.md && git commit -m "Update README.md" && git push && gen_table ;;
+1) gen_repo_README && gen_table && git add README.md && git commit -m "Update README.md" && git push ;;
 2)
     diffs=$(eval "git diff")
     echo -e "DIFFS: \n$diffs\n"
@@ -67,8 +67,8 @@ case "$option" in
     read -r commitmsg
     echo -e "Generating README.md for the repo...\n\n"
     gen_repo_README
-    git add . && git commit -m "$commitmsg" && git push
     gen_table
+    git add . && git commit -m "$commitmsg" && git push
     ;;
 3) echo "Updates finished" ;;
 *) echo "error" ;;

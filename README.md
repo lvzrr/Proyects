@@ -75,3 +75,16 @@ TUI for a pomodoro timer
 A ls type util that uses nerdfonts to display files clearer than the default ls command
 ## [TapRec](https://github.com/lvzrr/Recreational-Programming/tree/main/TapRec)
 A simple audio recorder, with somewhat of a waveform visualizer in the terminal
+# Latest Commits:
+| Commit Hash | Commit Msg |
+|--------------|----------------------------|
+| f2a40a6 | made commithistory table |
+| ac1fe9e | created table generator function for commit history |
+| 3f7fb01 | added commit history table generation |
+| 9ccc538 | Updated Script |
+| dc213bb | updated README |
+| 0df874b | remove advoc2024 |
+| 7f67971 | updated script |
+| 02853a9 | updated script |
+| abad32a | Updated script |
+| ab3254b | updated script |
