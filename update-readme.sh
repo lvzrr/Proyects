@@ -2,7 +2,7 @@
 
 echo -e "1. Commit all changes\n2. Only update the readme"
 
-read option
+read -r option
 
 sed -i '/# RECREATIONAL PROGRAMMING/!d' README.md
 
@@ -10,8 +10,6 @@ warning="> [!Warning]\n**This is a personal repo for personal use, code might be
 echo -e "$warning" >>README.md
 
 for readme in */README.md; do
-    echo "Processing $readme"
-
     proyectname="${readme%/README.md}"
 
     proyectname="$(echo -e "$proyectname" | sed -e 's/^[[:space:]]*//g' -e 's/[[:space:]]*$//g')"
@@ -33,9 +31,14 @@ for readme in */README.md; do
             echo -e "$line" >>README.md
         fi
     done <"$readme"
+    echo "[+] $readme"
 done
 
 case "$option" in
 1) git add README.md && git commit -m "Update README.md" && git push ;;
-2) git add . && git commit -m "scripted commit" && git push ;;
+2)
+    echo "Please input a commit message"
+    read -r commitmsg
+    git add . && git commit -m "$commitmsg" && git push
+    ;;
 esac
