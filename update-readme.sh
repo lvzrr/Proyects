@@ -8,11 +8,13 @@ echo -e "$warning" >>README.md
 for readme in */README.md; do
     echo "Processing $readme"
 
-    proyectname="${readme%/README.md}" # This removes "/README.md" from the path to get the project name
+    proyectname="${readme%/README.md}"
 
     while IFS= read -r line; do
         if [[ "$line" == \#* ]]; then
-            echo -e "#$line \t[🔗$proyectname](https://github.com/lvzrr/Recreational-Programming/tree/main/$proyectname)" >>README.md
+            line_no_header="${line#\#}"
+            lineheader="${line%%[^#]*}"
+            echo -e "${lineheader}#$line_no_header [$proyectname](https://github.com/lvzrr/Recreational-Programming/tree/main/$proyectname)" >>README.md
         else
             echo -e "$line" >>README.md
         fi
