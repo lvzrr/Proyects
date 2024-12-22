@@ -6,6 +6,7 @@
 - [Clearf](#Clearf)
 - [KeyWatcher](#KeyWatcher)
 - [Locksmith](#Locksmith)
+- [Neurons](#Neurons)
 - [Note-Cli](#Note-Cli)
 - [ObfusKey](#ObfusKey)
 - [Pomodoro](#Pomodoro)
@@ -66,6 +67,8 @@ chmod +x run.sh && ./run.sh
 I wouldn't change the font, bc i adjusted the buffer so it has 1 more char than the display, but you do you
 ## [Locksmith](https://github.com/lvzrr/Recreational-Programming/tree/main/Locksmith)
 Random Password Generator in C 
+## [Neurons](https://github.com/lvzrr/Recreational-Programming/tree/main/Neurons)
+Small neural machine learning algorithm test
 ## [Note-Cli](https://github.com/lvzrr/Recreational-Programming/tree/main/Note-Cli)
 A simple TUI TO-DO app, this uses [this other project](https://github.com/lvzrr/Proyects/tree/main/ObfusKey) for encrypting the notes
 
@@ -90,7 +93,9 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
-| CURRENT | added keymaps for especific keys and changed winsize | lvzrr | 2024-12-19 |
+| CURRENT | Update README.md | lvzrr | 2024-12-23 |
+| 314f661 | added NEURONS | lvzrr | 2024-12-23 |
+| 0fd1432 | added keymaps for especific keys and changed winsize | lvzrr | 2024-12-19 |
 | ffd9839 | fixed typo | lvzrr | 2024-12-19 |
 | d7cf927 | fix commit history placement | lvzrr | 2024-12-19 |
 | 166eccb | support for current commit | lvzrr | 2024-12-19 |
@@ -99,5 +104,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | 2d25660 | Update README.md | lvzrr | 2024-12-19 |
 | 8f0a3ab | changed script logic | lvzrr | 2024-12-19 |
 | 690a8a4 | made a table of contents | lvzrr | 2024-12-19 |
-| e92c427 | Update README.md | lvzrr | 2024-12-19 |
-| b58b886 | Update README.md | lvzrr | 2024-12-19 |
