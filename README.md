@@ -13,7 +13,7 @@
 - [Sniffer](#Sniffer)
 - [TapRec](#TapRec)
 
-## [Clearf](https://github.com/lvzrr/Recreational-Programming/tree/main/Clearf)
+## 1 - [Clearf](https://github.com/lvzrr/Recreational-Programming/tree/main/Clearf)
 
 > [!Note]
 Only works in **POSIX** systems, or at least in linux, as it gets keystrokes data directly from the driver
@@ -51,7 +51,7 @@ chmod +x ./run.sh && ./run.sh
 ```
 > [!Warning]
 **CLEARF IS COMING**
-## [KeyWatcher](https://github.com/lvzrr/Recreational-Programming/tree/main/KeyWatcher)
+## 2 - [KeyWatcher](https://github.com/lvzrr/Recreational-Programming/tree/main/KeyWatcher)
 
 A multithreaded daemon to display keystrokes through the keyboard using raylib (Only works on **POSIX** operating systems, or at least in Linux)
 
@@ -65,11 +65,11 @@ chmod +x run.sh && ./run.sh
 ```
 > [!Note] 
 I wouldn't change the font, bc i adjusted the buffer so it has 1 more char than the display, but you do you
-## [Locksmith](https://github.com/lvzrr/Recreational-Programming/tree/main/Locksmith)
+## 3 - [Locksmith](https://github.com/lvzrr/Recreational-Programming/tree/main/Locksmith)
 Random Password Generator in C 
-## [Neurons](https://github.com/lvzrr/Recreational-Programming/tree/main/Neurons)
+## 4 - [Neurons](https://github.com/lvzrr/Recreational-Programming/tree/main/Neurons)
 Small neural machine learning algorithm test
-## [Note-Cli](https://github.com/lvzrr/Recreational-Programming/tree/main/Note-Cli)
+## 5 - [Note-Cli](https://github.com/lvzrr/Recreational-Programming/tree/main/Note-Cli)
 A simple TUI TO-DO app, this uses [this other project](https://github.com/lvzrr/Proyects/tree/main/ObfusKey) for encrypting the notes
 
 > [!NOTE]
@@ -81,19 +81,20 @@ chmod +x run.sh
 ```
 
 
-## [ObfusKey](https://github.com/lvzrr/Recreational-Programming/tree/main/ObfusKey)
+## 6 - [ObfusKey](https://github.com/lvzrr/Recreational-Programming/tree/main/ObfusKey)
 Encrypt and decrypt files using randomly generated keys
-## [Pomodoro](https://github.com/lvzrr/Recreational-Programming/tree/main/Pomodoro)
+## 7 - [Pomodoro](https://github.com/lvzrr/Recreational-Programming/tree/main/Pomodoro)
 TUI for a pomodoro timer 
-## [Sniffer](https://github.com/lvzrr/Recreational-Programming/tree/main/Sniffer)
+## 8 - [Sniffer](https://github.com/lvzrr/Recreational-Programming/tree/main/Sniffer)
 A ls type util that uses nerdfonts to display files clearer than the default ls command
-## [TapRec](https://github.com/lvzrr/Recreational-Programming/tree/main/TapRec)
+## 9 - [TapRec](https://github.com/lvzrr/Recreational-Programming/tree/main/TapRec)
 A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
 | CURRENT | Update README.md | lvzrr | 2024-12-23 |
+| 02bab5f | Update README.md | lvzrr | 2024-12-23 |
 | 314f661 | added NEURONS | lvzrr | 2024-12-23 |
 | 0fd1432 | added keymaps for especific keys and changed winsize | lvzrr | 2024-12-19 |
 | ffd9839 | fixed typo | lvzrr | 2024-12-19 |
@@ -103,4 +104,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | c225094 | Update README.md | lvzrr | 2024-12-19 |
 | 2d25660 | Update README.md | lvzrr | 2024-12-19 |
 | 8f0a3ab | changed script logic | lvzrr | 2024-12-19 |
-| 690a8a4 | made a table of contents | lvzrr | 2024-12-19 |
