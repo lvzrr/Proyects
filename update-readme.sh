@@ -18,6 +18,8 @@ function gen_table() {
     echo "Table successfully added to README.md"
 }
 
+cont=1
+
 function gen_repo_README() {
     toc="## Table of contents:\n"
     header="# RECREATIONAL PROGRAMMING\n> [!Warning]\n**This is a personal repo for personal use, code might be *UNSAFE*, not well documented or unintuitive, use at your own risk**"
@@ -36,8 +38,9 @@ function gen_repo_README() {
                 lineheader="$(echo -e "$lineheader" | sed -e 's/^[[:space:]]*//g' -e 's/[[:space:]]*$//g')"
 
                 if [[ "$line_no_header" == "$proyectname" ]]; then
-                    readme_md+="${lineheader}# [$proyectname](https://github.com/lvzrr/Recreational-Programming/tree/main/$proyectname)\n" >>README.md
+                    readme_md+="${lineheader}# [$cont. $proyectname](https://github.com/lvzrr/Recreational-Programming/tree/main/$proyectname)\n" >>README.md
                     toc+="- [$proyectname](#$proyectname)\n"
+                    ((cont += 1))
                 else
                     readme_md+="#$line\n" >>README.md
                 fi

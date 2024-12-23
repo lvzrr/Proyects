@@ -102,7 +102,7 @@ void Window_Manager(char *buffer) {
 }
 int main() {
   char *buffer = calloc(sizeof(char), BUFFER_SIZE);
-  strcpy(buffer, "           ");
+  strcpy(buffer, "             ");
   Window_Manager(buffer);
   free(buffer);
 }

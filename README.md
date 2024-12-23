@@ -93,7 +93,8 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 # Latest Commits:
 | Commit Hash | Commit Msg | Author | Date |
 |-------------|------------|--------|------|
-| CURRENT | Update README.md | lvzrr | 2024-12-23 |
+| CURRENT | added headercount in README script | lvzrr | 2024-12-23 |
+| fd09a3c | Update README.md | lvzrr | 2024-12-23 |
 | 44eab98 | Update README.md | lvzrr | 2024-12-23 |
 | 02bab5f | Update README.md | lvzrr | 2024-12-23 |
 | 314f661 | added NEURONS | lvzrr | 2024-12-23 |
@@ -103,4 +104,3 @@ A simple audio recorder, with somewhat of a waveform visualizer in the terminal
 | 166eccb | support for current commit | lvzrr | 2024-12-19 |
 | ed9fe87 | Update README.md | lvzrr | 2024-12-19 |
 | c225094 | Update README.md | lvzrr | 2024-12-19 |
-| 2d25660 | Update README.md | lvzrr | 2024-12-19 |

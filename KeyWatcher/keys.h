@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#define WINDOW_WIDTH 350
+#define WINDOW_WIDTH 345
 #define WINDOW_HEIGHT 70
 #define FPS 144
 #define FONT "./resources/LigaSFMonoNerdFont-Regular.otf"
@@ -24,4 +24,4 @@ struct input_event {
 };
 
 // SOCKET SCRIPT RESULT:
-#define SOCKET "/dev/input/event6"
+#define SOCKET "/dev/input/event4"
